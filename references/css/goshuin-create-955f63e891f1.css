@@ -1,0 +1,22 @@
+/* The create-and-share leaf also reads as a standalone section without JavaScript. */
+.goshuin-create { padding-block:72px; }
+.generation-heading { max-width:740px; }
+.generation-heading h2 { margin-top:14px; color:#344d40; }
+.generation-lead { max-width:650px; margin-top:22px; }
+.generation-actions { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:40px; padding-top:26px; border-top:1px solid #cbbda3; }
+.generation-number { display:block; color:#a04935; font:italic 24px var(--serif); margin-bottom:12px; }
+.generation-actions h3 { margin:0 0 12px; color:#344d40; }
+.generation-actions p { max-width:400px; }
+.generation-note { margin-top:30px; color:#8e7157; font-style:italic; }
+.is-book-reader .reader-generation .reader-content { display:flex; flex-direction:column; justify-content:safe center; max-width:1100px; margin:auto; }
+.is-book-reader .reader-generation .generation-lead { font-size:18px; line-height:1.9; }
+@media (max-width:700px) {
+  .goshuin-create { padding-block:44px; }
+  .generation-actions { gap:22px; margin-top:26px; padding-top:18px; }
+  .generation-number { font-size:19px; margin-bottom:8px; }
+  .is-book-reader .reader-generation .generation-lead { font-size:15px; line-height:1.85; margin-top:18px; }
+  .is-book-reader .reader-generation .generation-actions h3 { font-size:18px; line-height:1.5; }
+  .is-book-reader .reader-generation .generation-actions p { font-size:12px; line-height:1.75; }
+  .generation-note { margin-top:24px; }
+}
+@media (max-width:380px) { .generation-actions { grid-template-columns:1fr; gap:18px; } }

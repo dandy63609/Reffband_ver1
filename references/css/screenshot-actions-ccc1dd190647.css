@@ -1,0 +1,27 @@
+/* Screenshot actions: quiet paper controls with a separate, readable action row. */
+.goshuin-book .screen-zoom,
+.is-book-reader .reader-tour .screen-zoom {
+  display:grid; grid-template-rows:minmax(0,1fr) auto; justify-items:center;
+  align-items:center; gap:12px; border-radius:8px;
+}
+.goshuin-book .screen-zoom>img { min-height:0; }
+.goshuin-book .screen-zoom .zoom-hint,
+.is-book-reader .reader-tour .screen-zoom .zoom-hint {
+  position:static; transform:none; display:inline-flex; align-items:center; justify-content:center;
+  gap:8px; min-height:40px; max-width:100%; padding:8px 14px; box-sizing:border-box;
+  border:1px solid #c9c5ba; border-radius:6px; background:#fcfaf5; color:#46565a;
+  font:500 12px/1.4 var(--sans); letter-spacing:.025em; white-space:nowrap;
+  box-shadow:0 1px 2px #302b2208; transition:background-color 160ms,border-color 160ms,color 160ms;
+}
+.zoom-hint svg { width:15px; height:15px; flex:none; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+@media(hover:hover) {
+  .goshuin-book .screen-zoom:hover .zoom-hint { background:#eeece4; border-color:#7c8988; color:#2c414b; }
+}
+.goshuin-book .screen-zoom:active .zoom-hint { background:#e5e5db; border-color:#657774; }
+.goshuin-book .screen-zoom:focus-visible { outline:2px solid #914d40; outline-offset:5px; }
+.goshuin-book .screen-zoom:focus-visible .zoom-hint { border-color:#914d40; color:#793e34; }
+@media(max-width:700px) {
+  .goshuin-book .screen-zoom,.is-book-reader .reader-tour .screen-zoom { gap:8px; }
+  .goshuin-book .screen-zoom .zoom-hint,.is-book-reader .reader-tour .screen-zoom .zoom-hint { min-height:44px; padding:8px 12px; font-size:11px; }
+}
+@media(prefers-reduced-motion:reduce) { .goshuin-book .screen-zoom .zoom-hint { transition:none; } }

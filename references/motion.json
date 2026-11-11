@@ -1,0 +1,228 @@
+{
+  "url": "https://aestudio.studio/goshuin/en",
+  "viewport": {
+    "w": 1440,
+    "h": 900,
+    "dpr": 1
+  },
+  "instrumented": true,
+  "libraries": {},
+  "gsap": null,
+  "scrollTrigger": [],
+  "waapi": [],
+  "keyframes": [
+    {
+      "name": "folio-ink",
+      "css": "@keyframes folio-ink { \n  0% { clip-path: inset(0px 100% 0px 0px); }\n  100% { clip-path: inset(0px); }\n}"
+    },
+    {
+      "name": "folio-stamp",
+      "css": "@keyframes folio-stamp { \n  0% { opacity: 0.2; scale: 1.5; }\n  100% { opacity: 1; scale: 1; }\n}"
+    },
+    {
+      "name": "cover-ink-tide",
+      "css": "@keyframes cover-ink-tide { \n  0%, 100% { filter: brightness(1) saturate(0.95); }\n  50% { filter: brightness(1.08) saturate(1.08); }\n}"
+    }
+  ],
+  "scrollTimelines": [],
+  "transitions": [
+    {
+      "property": "color, background",
+      "duration": "0.2s, 0.2s",
+      "easing": "ease, ease",
+      "delay": "0s, 0s",
+      "example": "button",
+      "count": 6
+    },
+    {
+      "property": "background, color",
+      "duration": "0.25s, 0.25s",
+      "easing": "ease, ease",
+      "delay": "0s, 0s",
+      "example": "button",
+      "count": 4
+    },
+    {
+      "property": "transform",
+      "duration": "0.25s",
+      "easing": "ease",
+      "delay": "0s",
+      "example": "span.tour-arrow",
+      "count": 4
+    },
+    {
+      "property": "background-color, border-color, color",
+      "duration": "0.16s, 0.16s, 0.16s",
+      "easing": "ease, ease, ease",
+      "delay": "0s, 0s, 0s",
+      "example": "span.zoom-hint",
+      "count": 4
+    },
+    {
+      "property": "color, border-color",
+      "duration": "0.18s, 0.18s",
+      "easing": "ease, ease",
+      "delay": "0s, 0s",
+      "example": "a.hero-action.hero-action-primary",
+      "count": 2
+    },
+    {
+      "property": "background, color",
+      "duration": "0.18s, 0.18s",
+      "easing": "ease, ease",
+      "delay": "0s, 0s",
+      "example": "button",
+      "count": 2
+    },
+    {
+      "property": "background, transform",
+      "duration": "0.22s, 0.22s",
+      "easing": "ease, ease",
+      "delay": "0s, 0s",
+      "example": "a.button",
+      "count": 2
+    },
+    {
+      "property": "transform",
+      "duration": "0.2s",
+      "easing": "ease",
+      "delay": "0s",
+      "example": "span",
+      "count": 2
+    },
+    {
+      "property": "background-color, color, border-color, box-shadow",
+      "duration": "0.18s, 0.18s, 0.18s, 0.18s",
+      "easing": "ease, ease, ease, ease",
+      "delay": "0s, 0s, 0s, 0s",
+      "example": "button.book-motion-control",
+      "count": 1
+    }
+  ],
+  "lenis": null,
+  "sliders": [],
+  "splitText": [],
+  "intersectionObservers": [
+    {
+      "options": {
+        "threshold": 0.15
+      },
+      "targets": [
+        ".chart-card"
+      ]
+    },
+    {
+      "options": {
+        "threshold": 0.12
+      },
+      "targets": [
+        ".app-tour.book-spread.is-enhanced",
+        ".art-note",
+        ".culture-heading",
+        ".history-story"
+      ]
+    },
+    {
+      "options": {
+        "threshold": 0.35
+      },
+      "targets": [
+        ".memory-stamp"
+      ]
+    },
+    {
+      "options": {
+        "threshold": 0.18
+      },
+      "targets": [
+        ".culture-grid",
+        ".scan-steps"
+      ]
+    },
+    {
+      "options": {},
+      "targets": [
+        ".book-cover"
+      ]
+    },
+    {
+      "options": {
+        "threshold": 0.3
+      },
+      "targets": [
+        ".book-chapter-band.band-indigo-waves",
+        ".book-chapter-band.band-vermilion-clouds",
+        ".book-chapter-band.band-pine-fan",
+        ".book-chapter-band.band-golden-tide",
+        ".book-chapter-band.band-jade-ribbons",
+        ".book-chapter-band.band-sakura-silk"
+      ]
+    },
+    {
+      "options": {
+        "threshold": 0.12
+      },
+      "targets": [
+        ".tour-copy",
+        ".purpose-copy",
+        ".history-story",
+        ".chart-card",
+        ".faq"
+      ]
+    }
+  ],
+  "listeners": [
+    {
+      "on": "window",
+      "type": "scroll",
+      "passive": true
+    },
+    {
+      "on": "window",
+      "type": "resize",
+      "passive": false
+    },
+    {
+      "on": "window",
+      "type": "resize",
+      "passive": true
+    },
+    {
+      "on": "document",
+      "type": "keydown",
+      "passive": false
+    },
+    {
+      "on": "window",
+      "type": "resize",
+      "passive": false
+    }
+  ],
+  "rafCalls": 0,
+  "customProps": {
+    "--paper": "#fdfcf9",
+    "--ink": "#292824",
+    "--muted": "#68665f",
+    "--line": "#e5e1d8",
+    "--sage": "#b7c6b3",
+    "--teal": "#943e37",
+    "--coral": "#943e37",
+    "--serif": "Georgia,'Hiragino Mincho ProN','Yu Mincho',serif",
+    "--sans": "-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif",
+    "--vermilion": "#a6362f",
+    "--warm-paper": "#f8f6ef",
+    "--journey-ease": "cubic-bezier(.22,.68,.2,1)",
+    "--forest": "#2f493e"
+  },
+  "notes": [],
+  "summary": {
+    "animationStack": [],
+    "inputDrivers": [
+      "scroll",
+      "resize",
+      "keydown"
+    ],
+    "ioCount": 7,
+    "platform": []
+  }
+}

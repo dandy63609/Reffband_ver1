@@ -1,0 +1,56 @@
+# Stories for Epic 03: Band Studio Wizard & 4-Step EPK Builder
+
+[[entry]]
+id = 1
+type = "story"
+title = "Step 1: Band Identity & Multi-Select Genre Chips UI"
+description = "Membangun formulir identitas band (nama, kota, tarif per gig) dan chip genre interaktif yang dapat dipilih secara jamak (multi-select) dengan indikasi warna aktif."
+verify = "Ketik nama band 'Suara Senja', kota 'Semarang', tarif 'Rp 1.000.000', dan pilih chip 'Indie Folk'; verifikasi nilai tersimpan di state."
+covers = ["R2.1"]
+after = []
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Step 2: Cassette Dropzone Audio Demo Uploader & Waveform Preview"
+description = "Menyediakan area dropzone berbingkai kaset MK-60 untuk file MP3/WAV (maks 15MB), memvalidasi ukuran file, mengekstrak waveform visual, dan menyediakan field link Spotify/YouTube."
+verify = "Drag-and-drop file MP3 ke dropzone; pastikan waveform visual ter-generate dan tombol play dapat memutar cuplikan audio."
+covers = ["R3.1"]
+after = [1]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 3
+type = "story"
+title = "Step 3: Studio Rehearsal Polaroid Uploader & Gig History Table"
+description = "Membangun komponen upload foto latihan studio bergaya Polaroid dengan caption tanggal, field video rehearsal, dan tabel riwayat acara/panggung yang pernah dimainkan."
+verify = "Unggah foto studio; pastikan foto terbingkai Polaroid bertanggal dan baris riwayat event dapat ditambah/dihapus secara dinamis."
+covers = ["R4.1"]
+after = [1]
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 4
+type = "story"
+title = "Step 4: Technical Stage Rider Checklist & Socials Input"
+description = "Menyediakan form input kontak WhatsApp manajer, handle Instagram/TikTok, serta checklist kebutuhan teknis panggung (drum kit, mic, amp gitar, direct box)."
+verify = "Centang kebutuhan alat musik dan isi nomor WhatsApp manajer; pastikan checklist terekam dalam objek data EPK."
+covers = ["R5.1"]
+after = [1]
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 5
+type = "story"
+title = "Real-Time Cassette Card Preview & Rule-4 Completeness Meter"
+description = "Menghubungkan state form ke kartu pratinjau kaset dinamis di kolom kanan, serta menghitung persentase kelengkapan berkas hingga 100% VERIFIED READY."
+verify = "Setiap kali input diketik, nama dan kota pada kartu kaset kanan langsung berubah tanpa lag; meter progres bertambah hingga 100% saat form lengkap."
+covers = ["R5.2"]
+after = [1, 2, 3, 4]
+hitl = false
+risk = "medium"

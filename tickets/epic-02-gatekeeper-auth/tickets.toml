@@ -1,0 +1,34 @@
+# Stories for Epic 02: Role Gatekeeper & Session Bifurcation
+
+[[entry]]
+id = 1
+type = "story"
+title = "Two-Card Gatekeeper UI with Authentic Cassette & Vinyl Cutouts"
+description = "Membangun tampilan Leaf 01 dengan kolase panggung hero di sisi kiri dan dua kartu peran kontras tinggi beraset cutout kaset MK-60 maroon dan vinyl LP kuning mustard di sisi kanan."
+verify = "Buka Leaf 01; verifikasi dua kartu peran tampil jelas dengan kontras tinggi dan CTA eksplisit."
+covers = ["R1.1"]
+after = []
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Direct Role Routing & State Bifurcation"
+description = "Menghubungkan klik pada kartu Musisi untuk melompat ke Leaf 02 (Studio Wizard) dan kartu EO untuk melompat ke Leaf 04 (Discovery), serta mencatat status peran di state aplikasi."
+verify = "Klik 'MASUK KE STUDIO BAND ➔' dan pastikan layar berpindah ke Leaf 02; klik 'CARI BAND SEKARANG ➔' dan pastikan layar berpindah ke Leaf 04."
+covers = ["R1.2"]
+after = [1]
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 3
+type = "story"
+title = "Persistent Role Switcher Navbar Control"
+description = "Menyediakan tombol toggle peran di navbar (.book-header) untuk beralih instan antara peran Band dan EO kapan saja tanpa logout."
+verify = "Klik tombol 'MENU PERAN' di header; verifikasi lembaran beralih secara langsung antara Leaf 02 dan Leaf 04, dan label peran terupdate."
+covers = ["R1.3"]
+after = [2]
+hitl = false
+risk = "low"

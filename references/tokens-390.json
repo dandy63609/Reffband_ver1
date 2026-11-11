@@ -1,0 +1,645 @@
+{
+  "url": "https://aestudio.studio/goshuin/en",
+  "viewport": {
+    "w": 390,
+    "h": 844,
+    "dpr": 1
+  },
+  "colors": [
+    {
+      "value": "rgb(45, 52, 53)",
+      "count": 7,
+      "where": [
+        "text a.brand",
+        "text span",
+        "text p.kicker"
+      ]
+    },
+    {
+      "value": "rgb(75, 93, 96)",
+      "count": 6,
+      "where": [
+        "text a",
+        "text button",
+        "text span"
+      ]
+    },
+    {
+      "value": "rgb(75, 85, 69)",
+      "count": 5,
+      "where": [
+        "text a"
+      ]
+    },
+    {
+      "value": "rgb(249, 247, 242)",
+      "count": 3,
+      "where": [
+        "bg main.goshuin-book",
+        "bg #hero-en",
+        "bg section.hero.illustrated-hero"
+      ]
+    },
+    {
+      "value": "rgb(214, 209, 197)",
+      "count": 3,
+      "where": [
+        "border p.kicker",
+        "border p.hero-edition",
+        "border nav.reader-controls"
+      ]
+    },
+    {
+      "value": "rgb(215, 216, 205)",
+      "count": 3,
+      "where": [
+        "text span",
+        "text span.cover-open-cue"
+      ]
+    },
+    {
+      "value": "rgb(41, 40, 36)",
+      "count": 2,
+      "where": [
+        "text a.skip",
+        "text span.sr-only"
+      ]
+    },
+    {
+      "value": "rgb(61, 71, 61)",
+      "count": 2,
+      "where": [
+        "text figcaption",
+        "text span"
+      ]
+    },
+    {
+      "value": "rgb(108, 102, 90)",
+      "count": 2,
+      "where": [
+        "text button.scene-replay.book-replay",
+        "text span"
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "value": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif / 400",
+      "count": 25,
+      "where": [
+        "a.skip",
+        "a",
+        "span"
+      ]
+    },
+    {
+      "value": "Georgia, \"Hiragino Mincho ProN\", \"Yu Mincho\", serif / 400",
+      "count": 7,
+      "where": [
+        "a.brand",
+        "span",
+        "#reader-hero-title-en"
+      ]
+    }
+  ],
+  "fontFaces": [],
+  "typeScale": [
+    {
+      "value": "13px / normal / 400",
+      "count": 5,
+      "where": [
+        "a"
+      ]
+    },
+    {
+      "value": "9px / 16.65px / 400",
+      "count": 3,
+      "where": [
+        "a",
+        "span"
+      ]
+    },
+    {
+      "value": "17px / normal / 400",
+      "count": 3,
+      "where": [
+        "span"
+      ]
+    },
+    {
+      "value": "16px / 29.6px / 400",
+      "count": 2,
+      "where": [
+        "a.skip",
+        "span.sr-only"
+      ]
+    },
+    {
+      "value": "23px / normal / 400",
+      "count": 2,
+      "where": [
+        "a.brand",
+        "span"
+      ]
+    },
+    {
+      "value": "11px / 15.4px / 400",
+      "count": 2,
+      "where": [
+        "a.hero-action.hero-action-primary",
+        "a.hero-action.hero-action-secondary"
+      ]
+    },
+    {
+      "value": "8px / 12px / 400",
+      "count": 2,
+      "where": [
+        "p.hero-edition",
+        "small"
+      ]
+    },
+    {
+      "value": "10px / normal / 400",
+      "count": 2,
+      "where": [
+        "button"
+      ]
+    }
+  ],
+  "lineHeights": [
+    {
+      "value": "16.65px",
+      "count": 3,
+      "where": [
+        "a",
+        "span"
+      ]
+    },
+    {
+      "value": "29.6px",
+      "count": 2,
+      "where": [
+        "a.skip",
+        "span.sr-only"
+      ]
+    },
+    {
+      "value": "15.4px",
+      "count": 2,
+      "where": [
+        "a.hero-action.hero-action-primary",
+        "a.hero-action.hero-action-secondary"
+      ]
+    },
+    {
+      "value": "12px",
+      "count": 2,
+      "where": [
+        "p.hero-edition",
+        "small"
+      ]
+    }
+  ],
+  "letterSpacing": [
+    {
+      "value": "0.72px",
+      "count": 3,
+      "where": [
+        "p.hero-tagline",
+        "span.cover-open-cue",
+        "span"
+      ]
+    },
+    {
+      "value": "-0.575px",
+      "count": 2,
+      "where": [
+        "a.brand",
+        "span"
+      ]
+    },
+    {
+      "value": "0.275px",
+      "count": 2,
+      "where": [
+        "a.hero-action.hero-action-primary",
+        "a.hero-action.hero-action-secondary"
+      ]
+    },
+    {
+      "value": "0.56px",
+      "count": 2,
+      "where": [
+        "button.scene-replay.book-replay",
+        "span"
+      ]
+    }
+  ],
+  "spacing": [
+    {
+      "value": "10px",
+      "count": 18,
+      "where": [
+        "padding a.skip",
+        "margin main.goshuin-book",
+        "padding a"
+      ]
+    },
+    {
+      "value": "6px",
+      "count": 18,
+      "where": [
+        "rowGap a.brand",
+        "columnGap a.brand",
+        "rowGap summary"
+      ]
+    },
+    {
+      "value": "14px",
+      "count": 17,
+      "where": [
+        "padding div.reader-topline",
+        "padding a",
+        "rowGap a.hero-action.hero-action-primary"
+      ]
+    },
+    {
+      "value": "8px",
+      "count": 12,
+      "where": [
+        "rowGap div.reader-identity",
+        "columnGap div.reader-identity",
+        "padding nav"
+      ]
+    },
+    {
+      "value": "5px",
+      "count": 8,
+      "where": [
+        "rowGap div.languages",
+        "columnGap div.languages",
+        "padding figcaption"
+      ]
+    },
+    {
+      "value": "7px",
+      "count": 8,
+      "where": [
+        "padding span.cover-title",
+        "padding button.scene-replay.book-replay",
+        "padding #reader-page-choice"
+      ]
+    },
+    {
+      "value": "18px",
+      "count": 6,
+      "where": [
+        "padding nav",
+        "rowGap section.hero.illustrated-hero",
+        "columnGap section.hero.illustrated-hero"
+      ]
+    },
+    {
+      "value": "4px",
+      "count": 5,
+      "where": [
+        "rowGap nav.reader-controls",
+        "columnGap nav.reader-controls",
+        "padding #reader-page-choice"
+      ]
+    },
+    {
+      "value": "2px",
+      "count": 4,
+      "where": [
+        "padding button"
+      ]
+    },
+    {
+      "value": "3px",
+      "count": 4,
+      "where": [
+        "rowGap button",
+        "columnGap button"
+      ]
+    },
+    {
+      "value": "15px",
+      "count": 3,
+      "where": [
+        "rowGap div.reader-topline",
+        "columnGap div.reader-topline",
+        "padding #reader-page-choice"
+      ]
+    },
+    {
+      "value": "23px",
+      "count": 3,
+      "where": [
+        "padding summary",
+        "padding section.hero.illustrated-hero"
+      ]
+    },
+    {
+      "value": "24px",
+      "count": 2,
+      "where": [
+        "margin main.goshuin-book",
+        "margin p.kicker"
+      ]
+    },
+    {
+      "value": "26px",
+      "count": 2,
+      "where": [
+        "rowGap div.actions",
+        "columnGap div.actions"
+      ]
+    }
+  ],
+  "radii": [],
+  "shadows": [
+    {
+      "value": "rgba(24, 35, 33, 0.145) 12px 8px 25px 0px",
+      "count": 2,
+      "where": [
+        "div.book-cover-front",
+        "div.book-cover-back"
+      ]
+    }
+  ],
+  "zIndex": [],
+  "gradients": [],
+  "filters": [],
+  "blendModes": [],
+  "maxWidths": [],
+  "breakpoints": [
+    "360px",
+    "380px",
+    "600px",
+    "680px",
+    "700px",
+    "701px",
+    "720px",
+    "740px",
+    "1000px",
+    "1050px",
+    "1100px",
+    "1500px",
+    "1600px",
+    "1800px"
+  ],
+  "customProps": {
+    "--paper": "#fdfcf9",
+    "--ink": "#292824",
+    "--muted": "#68665f",
+    "--line": "#e5e1d8",
+    "--sage": "#b7c6b3",
+    "--teal": "#943e37",
+    "--coral": "#943e37",
+    "--serif": "Georgia,'Hiragino Mincho ProN','Yu Mincho',serif",
+    "--sans": "-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif",
+    "--vermilion": "#a6362f",
+    "--warm-paper": "#f8f6ef",
+    "--journey-ease": "cubic-bezier(.22,.68,.2,1)",
+    "--forest": "#2f493e"
+  },
+  "body": {
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif",
+    "fontSize": "16px",
+    "lineHeight": "29.6px",
+    "color": "rgb(41, 40, 36)",
+    "background": "rgb(231, 229, 223)",
+    "letterSpacing": "normal"
+  },
+  "headings": {
+    "h1": {
+      "fontFamily": "Georgia, \"Hiragino Mincho ProN\", \"Yu Mincho\", serif",
+      "fontSize": "78px",
+      "fontWeight": "400",
+      "lineHeight": "76.44px",
+      "letterSpacing": "-5.46px",
+      "textTransform": "none",
+      "color": "rgb(45, 52, 53)",
+      "marginBottom": "0px"
+    },
+    "h2": {
+      "fontFamily": "Georgia, \"Hiragino Mincho ProN\", \"Yu Mincho\", serif",
+      "fontSize": "26px",
+      "fontWeight": "400",
+      "lineHeight": "31.2px",
+      "letterSpacing": "-0.52px",
+      "textTransform": "none",
+      "color": "rgb(41, 40, 36)",
+      "marginBottom": "0px"
+    },
+    "h3": {
+      "fontFamily": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "500",
+      "lineHeight": "28.8px",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(41, 40, 36)",
+      "marginBottom": "0px"
+    },
+    "p": {
+      "fontFamily": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif",
+      "fontSize": "8px",
+      "fontWeight": "500",
+      "lineHeight": "11.2px",
+      "letterSpacing": "1.28px",
+      "textTransform": "none",
+      "color": "rgb(45, 52, 53)",
+      "marginBottom": "24px"
+    }
+  },
+  "buttons": [
+    {
+      "example": "div.book-cover",
+      "text": "御朱印帳GoShuinA JOURNAL OF JAPAN↗",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(45, 52, 53)",
+      "border": "0px none rgb(45, 52, 53)",
+      "radius": "0px",
+      "padding": "0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "shadow": "none",
+      "transition": "all 0s ease"
+    },
+    {
+      "example": "button.scene-replay.book-replay",
+      "text": "↻ Replay the Ink",
+      "background": "rgba(247, 241, 228, 0.9)",
+      "color": "rgb(108, 102, 90)",
+      "border": "0px none rgb(108, 102, 90)",
+      "radius": "0px",
+      "padding": "7px 10px",
+      "fontSize": "8px",
+      "fontWeight": "400",
+      "letterSpacing": "0.56px",
+      "textTransform": "none",
+      "shadow": "none",
+      "transition": "all 0s ease"
+    },
+    {
+      "example": "button",
+      "text": "01Keep the pageKeep your goshu",
+      "background": "rgb(236, 230, 215)",
+      "color": "rgb(166, 54, 47)",
+      "border": "1px solid rgba(0, 0, 0, 0)",
+      "radius": "0px",
+      "padding": "8px 6px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "shadow": "none",
+      "transition": "background, color 0.25s, 0.25s ease, ease"
+    },
+    {
+      "example": "button",
+      "text": "02Find your next visitFind tem",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(41, 40, 36)",
+      "border": "1px solid rgba(0, 0, 0, 0)",
+      "radius": "0px",
+      "padding": "8px 6px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "shadow": "none",
+      "transition": "background, color 0.25s, 0.25s ease, ease"
+    },
+    {
+      "example": "button.screen-zoom",
+      "text": "View screenshot",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(41, 40, 36)",
+      "border": "0px none rgb(41, 40, 36)",
+      "radius": "8px",
+      "padding": "0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "shadow": "none",
+      "transition": "all 0s ease"
+    },
+    {
+      "example": "button.scan-demo-zoom",
+      "text": "",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "border": "0px none rgb(0, 0, 0)",
+      "radius": "0px",
+      "padding": "0px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "shadow": "none",
+      "transition": "all 0s ease"
+    },
+    {
+      "example": "button",
+      "text": "Replay the stamp ↻",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(148, 62, 55)",
+      "border": "0px none rgb(148, 62, 55)",
+      "radius": "0px",
+      "padding": "4px",
+      "fontSize": "9px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "shadow": "none",
+      "transition": "all 0s ease"
+    },
+    {
+      "example": "button",
+      "text": "Cumulative",
+      "background": "rgb(49, 78, 67)",
+      "color": "rgb(255, 248, 231)",
+      "border": "0px none rgb(255, 248, 231)",
+      "radius": "0px",
+      "padding": "5px 8px",
+      "fontSize": "9px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "shadow": "rgb(210, 186, 134) 0px -3px 0px 0px inset",
+      "transition": "background, color 0.18s, 0.18s ease, ease"
+    }
+  ],
+  "links": {
+    "color": "rgb(75, 85, 69)",
+    "decoration": "none",
+    "weight": "400"
+  },
+  "notes": [],
+  "loadedFonts": [],
+  "fontLinks": [],
+  "page": {
+    "scrollHeight": 844,
+    "sections": [
+      {
+        "selector": "div.reader-stage",
+        "top": 78,
+        "height": 684,
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "selector": "#hero-en",
+        "top": 78,
+        "height": 684,
+        "background": "rgb(249, 247, 242)"
+      },
+      {
+        "selector": "section.hero.illustrated-hero",
+        "top": 78,
+        "height": 684,
+        "background": "rgb(249, 247, 242)"
+      }
+    ],
+    "fixed": [
+      {
+        "selector": "a.skip",
+        "position": "fixed",
+        "rect": [
+          20,
+          -100,
+          132,
+          50
+        ],
+        "z": "10"
+      },
+      {
+        "selector": "form",
+        "position": "sticky",
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "z": "1"
+      },
+      {
+        "selector": "button.book-motion-control",
+        "position": "fixed",
+        "rect": [
+          277,
+          819,
+          98,
+          24
+        ],
+        "z": "30"
+      }
+    ]
+  }
+}

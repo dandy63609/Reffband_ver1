@@ -1,0 +1,45 @@
+# Stories for Epic 04: Public EPK Dossier & Media Player
+
+[[entry]]
+id = 1
+type = "story"
+title = "Shareable EPK Header & 1-Click Link Copy"
+description = "Membangun header publik dengan URL yang dapat dibagikan (reffband.id/@band), tombol 1-klik untuk menyalin tautan ke clipboard, dan toast notifikasi sukses."
+verify = "Klik 'SALIN LINK EPK'; pastikan URL tersalin ke clipboard dan toast konfirmasi muncul di layar."
+covers = ["R6.1"]
+after = []
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Concert Hero Banner & Key Metrics Card"
+description = "Membangun banner panggung atas dengan aset kolase siluet band, stempel domisili 'JAKARTA SELATAN', tarif 'Rp 1.000.000 / GIG', dan tombol utama 'BOOKING BAND VIA WHATSAPP'."
+verify = "Buka Leaf 03; periksa tata letak hero banner menampilkan foto panggung, nama band, domisili, dan tarif manggung dengan kontras tinggi."
+covers = ["R6.2"]
+after = [1]
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 3
+type = "story"
+title = "30s Analog Cassette Audio Player & Vinyl Discography Grid"
+description = "Mengimplementasikan pemutar audio 30 detik berwujud kaset lo-fi dengan roda reel berputar saat audio play, lirik lagu, dan grid piringan hitam diskografi rilisan."
+verify = "Klik play pada pemutar kaset; verifikasi audio berbunyi, roda reel berputar secara visual, dan durasi berjalan 30 detik."
+covers = ["R6.3"]
+after = [2]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 4
+type = "story"
+title = "Studio Polaroid Gallery & Technical Rider PDF Exporter"
+description = "Menampilkan galeri foto latihan studio Polaroid bertanggal, riwayat gig lampau, serta matriks daftar kebutuhan instrumen panggung dengan tombol ekspor PDF."
+verify = "Periksa galeri Polaroid tampil dengan rotasi alami (-1deg/+1deg), riwayat tiket panggung terbaca jelas, dan checklist rider lengkap."
+covers = ["R6.4", "R6.5"]
+after = [2]
+hitl = false
+risk = "low"

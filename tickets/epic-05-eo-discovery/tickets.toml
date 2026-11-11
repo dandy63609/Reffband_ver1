@@ -1,0 +1,34 @@
+# Stories for Epic 05: EO Talent Discovery & 1-Tap WhatsApp Booking Handshake
+
+[[entry]]
+id = 1
+type = "story"
+title = "Multi-Criteria Filter Bar (Genre Chips, City, Rate Range)"
+description = "Membangun bilah filter di bagian atas Leaf 04 dengan input pencarian instan nama band/kota, chip genre interaktif, dan pemilih rentang budget tarif."
+verify = "Ketik 'Semarang' atau klik chip 'Indie Folk'; verifikasi daftar kartu kaset band langsung tersaring sesuai filter."
+covers = ["R7.1"]
+after = []
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Cassette Talent Roster Grid & Zero-Page-Load 30s Audio Audition"
+description = "Menampilkan grid kartu kaset musisi lokal (Suara Senja, Distorsi Muda, Kala Senja) dengan badge verifikasi, tarif, genre, dan pemutar audio 30-detik inline yang dapat dimainkan di tempat."
+verify = "Klik tombol 'PLAY 30s DEMO' pada kartu kaset; pastikan audio langsung terputar di tempat tanpa membuka tab baru dan tombol berubah menjadi 'PAUSE'."
+covers = ["R7.2"]
+after = [1]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 3
+type = "story"
+title = "1-Tap WhatsApp Booking Handshake & Payload Message Generator"
+description = "Menyediakan bilah bawah booking yang saat diklik merakit parameter tanggal, nama event, dan tawaran honorarium menjadi draf pesan WhatsApp resmi yang dibuka langsung ke nomor manajer band."
+verify = "Klik 'AJUKAN JADWAL MANGGUNG' pada salah satu band; pastikan browser membuka tautan wa.me dengan teks undangan resmi yang sudah terisi otomatis."
+covers = ["R8.1", "R8.2"]
+after = [2]
+hitl = false
+risk = "low"

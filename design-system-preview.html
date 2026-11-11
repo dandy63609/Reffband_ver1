@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reffband — 3D Accordion Zine Booklet & Left-to-Right Slide Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7E1929;
+      --primary-hover: #661220;
+      --primary-subtle: #F7EDEE;
+      --mustard: #F5C542;
+      --mustard-subtle: #FEF9E7;
+      --secondary-amber: #E65C00;
+      --accent-cyan: #00A8B5;
+      --success: #2E6F40;
+      --surface: #FAF8F5;
+      --surface-paper: #FBF8F1;
+      --surface-card: #FFFFFF;
+      --surface-tape: #F3EFEA;
+      --surface-dark: #14110F;
+      --text-primary: #14110F;
+      --text-secondary: #52525B;
+      --text-tertiary: #71717A;
+      --border-subtle: #E4DFD7;
+      --border-bold: #14110F;
+      --shadow-sm: 0 2px 0 #14110F;
+      --shadow-md: 4px 4px 0 #14110F;
+      --shadow-hover: 6px 6px 0 #7E1929;
+      --font-display: 'Archivo Black', 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --journey-ease: cubic-bezier(0.22, 0.68, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* STRICT 100VH VIEWPORT LOCK: NO WINDOW SCROLLING (Matching GoShuin Reference) */
+    html, body {
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      background-color: var(--surface-dark);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      user-select: none;
+    }
+
+    /* Outer Booklet Shell */
+    .reffband-book {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-height: 980px;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 12px 20px 16px 20px;
+      background: var(--surface);
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Fixed Top Brand Header */
+    .book-header {
+      height: 64px;
+      min-height: 64px;
+      background: var(--surface-dark);
+      border: 2px solid var(--border-bold);
+      border-radius: 8px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      z-index: 10;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--mustard);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .brand-tagline {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #EFE6D5;
+      margin-top: 3px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .role-switcher-btn {
+      background: var(--primary);
+      color: #FFFFFF;
+      border: 2px solid var(--mustard);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .role-switcher-btn:hover {
+      background: var(--mustard);
+      color: var(--surface-dark);
+    }
+    .motion-toggle {
+      background: #2E6F40;
+      color: #FFFFFF;
+      border: 2px solid var(--border-bold);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Checkered Decorative Border Strip */
+    .checkered-strip {
+      height: 14px;
+      width: 100%;
+      background-color: var(--mustard);
+      background-image:
+        linear-gradient(45deg, var(--primary) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--primary) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--primary) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--primary) 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+      border-top: 2px solid var(--border-bold);
+      border-bottom: 2px solid var(--border-bold);
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+       THE 3D BOOK STAGE & ACCORDION MESH ENGINE (FROM GOSHUIN)
+       ========================================================= */
+    .reader-stage {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      perspective: 2000px; /* CRITICAL: Authentic 3D perspective depth */
+      overflow: hidden;
+      border-left: 2px solid var(--border-bold);
+      border-right: 2px solid var(--border-bold);
+      background: var(--surface-paper);
+      isolation: isolate;
+    }
+
+    /* Each Leaf Spread */
+    .reader-leaf {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      background: var(--surface-paper);
+      outline: none;
+      overflow: hidden;
+      user-select: text;
+    }
+    .reader-leaf[hidden] {
+      display: none !important;
+    }
+
+    /* Internal scroll only if content exceeds 100vh */
+    .reader-content {
+      height: 100%;
+      padding: 24px 32px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) transparent;
+    }
+
+    /* 3D ACCORDION Z-FOLD LAYERS */
+    .reader-accordion {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 8;
+      transform-style: preserve-3d;
+      pointer-events: none;
+    }
+    .accordion-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform-origin: left center;
+      will-change: transform;
+    }
+    /* Chained hinges: Panel 2 and 3 attach to the right edge (100%) of preceding panel */
+    .accordion-panel > .accordion-panel {
+      left: 100%;
+    }
+    .accordion-slice {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+    .accordion-slice {
+      background: var(--bg-card);
+      backface-visibility: hidden;
+      box-shadow: -1px 0 0 rgba(20, 17, 15, 0.15), 8px 0 24px rgba(20, 17, 15, 0.12);
+    }
+    /* Prevent cloned snapshot from stretching beyond natural width due to inset: 0 */
+    .accordion-slice > .reader-leaf {
+      right: auto !important;
+      bottom: auto !important;
+      position: absolute !important;
+      pointer-events: none !important;
+    }
+    .reader-accordion * {
+      animation: none !important;
+      transition: none !important;
+    }
+    .accordion-light, .accordion-shading {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 4;
+    }
+    .accordion-light {
+      mix-blend-mode: multiply;
+      transition: opacity 0.05s linear;
+    }
+    .fold-mountain > .accordion-shading {
+      background: linear-gradient(90deg, rgba(255, 251, 237, 0.9) 0, rgba(255, 251, 237, 0.5) 1px, rgba(60, 50, 43, 0.15) 3px, transparent 12px);
+    }
+    .fold-valley > .accordion-shading {
+      background: linear-gradient(90deg, rgba(32, 29, 25, 0.65) 0, rgba(40, 34, 28, 0.44) 2px, rgba(48, 41, 31, 0.2) 12px, transparent 22%);
+    }
+    .reader-fold-ground {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      z-index: 6;
+      pointer-events: none;
+      opacity: 0;
+      fill: #14110F;
+      will-change: opacity, filter;
+    }
+
+    /* =========================================================
+       PERSISTENT BOTTOM PAGING BAR (.reader-controls)
+       ========================================================= */
+    .reader-controls {
+      height: 56px;
+      min-height: 56px;
+      background: #EFE6D5;
+      border: 2px solid var(--border-bold);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: relative;
+      z-index: 12;
+    }
+    .control-btn {
+      background: var(--mustard);
+      border: 2px solid var(--border-bold);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 4px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+    .control-btn:hover:not(:disabled) {
+      background: var(--primary);
+      color: #FFFFFF;
+      transform: translate(-1px, -1px);
+    }
+    .control-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .page-indicator-select {
+      background: var(--surface-paper);
+      border: 2px solid var(--border-bold);
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    .chapter-quick-pills {
+      display: flex;
+      gap: 6px;
+    }
+    .pill-nav {
+      background: transparent;
+      border: 1px solid var(--border-bold);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .pill-nav.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
+    /* =========================================================
+       SPECIFIC LEAF STYLING (5 LEAVES)
+       ========================================================= */
+    /* LEAF 1: COVER & GATEKEEPER */
+    .leaf-1-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      height: 100%;
+      align-items: center;
+    }
+    .hero-collage-box {
+      background: var(--surface-tape);
+      border: 2px solid var(--border-bold);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.15;
+      color: var(--text-primary);
+    }
+    .hero-title span { color: var(--primary); }
+    .hero-stickers-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .hero-stickers-row img {
+      max-height: 80px;
+      object-fit: contain;
+    }
+
+    .role-cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .role-gate-card {
+      border: 2px solid var(--border-bold);
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .role-gate-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--border-bold);
+    }
+    .role-gate-card.card-band {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+    .role-gate-card.card-eo {
+      background: var(--mustard);
+      color: var(--text-primary);
+    }
+    .role-card-thumb {
+      width: 100px;
+      height: 85px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .role-card-body h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .role-card-body p {
+      font-size: 13px;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+    .role-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border: 2px solid var(--border-bold);
+      border-radius: 4px;
+      background: #FFFFFF;
+      color: var(--text-primary);
+    }
+
+    /* LEAF 2: BAND STUDIO WIZARD */
+    .leaf-2-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 24px;
+    }
+    .wizard-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border-bold);
+      border-radius: 8px;
+      padding: 18px 22px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px;
+    }
+    .wizard-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 8px;
+    }
+    .wizard-card-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 2px solid var(--border-bold);
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 13px;
+    }
+    .genre-chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .genre-chip {
+      background: var(--surface-tape);
+      border: 1px solid var(--border-bold);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .genre-chip.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .upload-cassette-dropzone {
+      border: 2px dashed var(--primary);
+      background: var(--mustard-subtle);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    /* LEAF 3: EPK DOSSIER */
+    .epk-dossier-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 0.9fr;
+      gap: 20px;
+    }
+    .epk-col-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border-bold);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* LEAF 4: EO DISCOVERY */
+    .eo-search-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .cassette-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .cassette-band-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border-bold);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tape-visual-header {
+      background: var(--mustard);
+      border: 2px solid var(--border-bold);
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .play-audio-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #FFFFFF;
+      border: 2px solid var(--border-bold);
+      padding: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* LEAF 5: UX SCORECARD */
+    .scorecard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .scorecard-item {
+      background: #FFFFFF;
+      border: 2px solid var(--border-bold);
+      border-radius: 6px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* =========================================================
+       GOSHUIN MOBILE PHONE ADAPTATION (<= 700px & Simulated Phone)
+       Switches from Horizontal Book Fold to Vertical Calendar Fold
+       ========================================================= */
+    @media (max-width: 700px) {
+      body {
+        padding: 8px 6px;
+      }
+      .goshuin-book {
+        margin: 6px 4px 16px !important;
+        width: calc(100% - 8px) !important;
+        max-width: 100% !important;
+        border-radius: 8px !important;
+        box-shadow: 
+          0 1px 3px rgba(64, 48, 28, 0.05),
+          0 9px 16px -10px rgba(58, 43, 33, 0.29),
+          0 20px 32px -23px rgba(58, 43, 33, 0.22),
+          2px 1px 0 #c7b99f,   /* page 1 edge */
+          4px 2px 0 #f6f0e3,   /* page 2 edge */
+          5px 3px 0 #cbbda4 !important; /* bottom cover edge */
+      }
+      .book-header {
+        height: 49px !important;
+        min-height: 49px !important;
+        padding: 0 10px !important;
+      }
+      .brand-logo {
+        width: 24px !important;
+        height: 24px !important;
+      }
+      .brand-title {
+        font-size: 17px !important;
+        letter-spacing: 0.5px !important;
+      }
+      .brand-tagline {
+        display: none !important;
+      }
+      .header-nav {
+        gap: 6px !important;
+      }
+      .role-switcher-btn, .motion-toggle {
+        padding: 5px 8px !important;
+        font-size: 10px !important;
+      }
+      .reader-stage {
+        touch-action: pan-x;
+      }
+      .reader-content {
+        padding: 12px 10px !important;
+      }
+      .leaf-1-grid, .leaf-2-layout, .scorecard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+      .epk-dossier-grid, .cassette-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .reader-controls {
+        height: 52px !important;
+        min-height: 52px !important;
+        padding: 0 8px !important;
+      }
+      .control-btn {
+        padding: 6px 10px !important;
+        font-size: 11px !important;
+      }
+      .page-indicator-select {
+        max-width: 135px !important;
+        font-size: 10px !important;
+        padding: 4px 6px !important;
+      }
+      .accordion-panel {
+        transform-origin: center top !important;
+      }
+      .accordion-panel > .accordion-panel {
+        left: 0 !important;
+        top: 100% !important;
+      }
+      .checkered-strip {
+        height: 10px !important;
+      }
+    }
+
+    /* Simulated Phone Mode Container for Desktop Testing */
+    .simulated-phone-container {
+      max-width: 420px !important;
+      margin: 12px auto !important;
+      box-shadow: 
+        0 1px 3px rgba(64, 48, 28, 0.05),
+        0 9px 16px -10px rgba(58, 43, 33, 0.29),
+        0 20px 32px -23px rgba(58, 43, 33, 0.22),
+        2px 1px 0 #c7b99f,
+        4px 2px 0 #f6f0e3,
+        5px 3px 0 #cbbda4 !important;
+    }
+    .simulated-phone-container .book-header {
+      height: 49px !important;
+      min-height: 49px !important;
+      padding: 0 10px !important;
+    }
+    .simulated-phone-container .brand-title {
+      font-size: 17px !important;
+    }
+    .simulated-phone-container .brand-tagline {
+      display: none !important;
+    }
+    .simulated-phone-container .leaf-1-grid,
+    .simulated-phone-container .leaf-2-layout,
+    .simulated-phone-container .scorecard-grid,
+    .simulated-phone-container .epk-dossier-grid,
+    .simulated-phone-container .cassette-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+    .simulated-phone-container .page-indicator-select {
+      max-width: 135px !important;
+      font-size: 10px !important;
+    }
+    .simulated-phone-container .accordion-panel {
+      transform-origin: center top !important;
+    }
+    .simulated-phone-container .accordion-panel > .accordion-panel {
+      left: 0 !important;
+      top: 100% !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- THE REFFBAND BOOKLET CONTAINER (100VH) -->
+  <main class="reffband-book">
+
+    <!-- 1. Fixed Top Header -->
+    <header class="book-header">
+      <div class="brand-group">
+        <img src="./extracted_assets/logo-r-transparent.png" alt="Reffband Logo" class="brand-logo" onerror="this.style.display='none'">
+        <div>
+          <h1 class="brand-title">REFFBAND</h1>
+          <p class="brand-tagline">3D ACCORDION GIG ZINE & TALENT DOSSIER</p>
+        </div>
+      </div>
+
+      <div class="header-nav">
+                <button class="role-switcher-btn" id="roleToggleBtn" onclick="toggleRoleShortcut()">
+          <span>🎸</span> MENU PERAN: <strong id="activeRoleText">BAND</strong>
+        </button>
+        <button class="motion-toggle" id="modeToggleBtn" onclick="toggleViewMode()" title="Toggle Desktop Book Fold (rotateY) vs Phone Calendar Fold (rotateX)" style="background:#5B21B6; color:#FFF;">
+          FOLD: <strong id="modeLabel">DESKTOP (rotateY)</strong>
+        </button>
+        <button class="motion-toggle" id="fold3dToggleBtn" onclick="toggle3DFoldMode()">
+          3D FOLD ENGINE: [ON]
+        </button>
+      </div>
+    </header>
+
+    <!-- Checkered Top Strip -->
+    <div class="checkered-strip"></div>
+
+    <!-- 2. The Fixed 3D Stage (perspective: 2000px, 100vh locked) -->
+    <div class="reader-stage" id="readerStage">
+
+      <!-- ==========================================
+           LEAF 1: COVER & GATEKEEPER
+           ========================================== -->
+      <section class="reader-leaf" id="leaf-1" data-title="Cover & Pilihan Peran">
+        <div class="reader-content">
+          <div class="leaf-1-grid">
+            <div class="hero-collage-box">
+              <span class="pill-nav" style="background:var(--mustard); align-self:flex-start;">LEAF 01 // GATEKEEPER</span>
+              <h2 class="hero-title">Temukan Panggung, Hubungkan <span>Band Indie</span> Lokal.</h2>
+              <p style="font-size:14px; line-height:1.6; color:var(--text-secondary);">
+                Platform digital pertama di Indonesia yang menyatukan kurasi band lokal dengan Event Organizer & Coffee Shop melalui dossier EPK taktil.
+              </p>
+              <div class="hero-stickers-row">
+                <img src="./extracted_assets/cassette-mk60-cutout.png" alt="Cassette" onerror="this.style.display='none'">
+                <img src="./extracted_assets/vinyl-lp-cutout.png" alt="Vinyl LP" onerror="this.style.display='none'">
+                <img src="./extracted_assets/reffband-marquee-cutout.png" alt="Marquee" onerror="this.style.display='none'">
+              </div>
+              <div style="font-family:var(--font-mono); font-size:11px; color:var(--primary); font-weight:700;">
+                ➔ Geser layar ke kanan atau gunakan tombol di bawah untuk membuka halaman zine.
+              </div>
+            </div>
+
+            <div class="role-cards-container">
+              <!-- Card A: Band -->
+              <div class="role-gate-card card-band" onclick="goToLeaf(1)">
+                <img src="./extracted_assets/cassette-mk60-cutout.png" alt="Cassette Tape" class="role-card-thumb" onerror="this.style.display='none'">
+                <div class="role-card-body">
+                  <span style="font-family:var(--font-mono); font-size:10px; background:var(--mustard); color:var(--text-primary); padding:2px 8px; border-radius:3px; font-weight:700;">PILIHAN 01</span>
+                  <h3>🎸 MUSISI / BAND</h3>
+                  <p>Buat profil EPK taktil, upload audio demo MP3, pilih genre, dan terima booking panggung resmi.</p>
+                  <span class="role-card-btn">BUKA STUDIO BAND ➔</span>
+                </div>
+              </div>
+
+              <!-- Card B: EO -->
+              <div class="role-gate-card card-eo" onclick="goToLeaf(3)">
+                <img src="./extracted_assets/vinyl-lp-cutout.png" alt="Vinyl LP" class="role-card-thumb" onerror="this.style.display='none'">
+                <div class="role-card-body">
+                  <span style="font-family:var(--font-mono); font-size:10px; background:var(--primary); color:#FFFFFF; padding:2px 8px; border-radius:3px; font-weight:700;">PILIHAN 02</span>
+                  <h3>☕ EVENT ORGANIZER / VENUE</h3>
+                  <p>Cari band kurasi, filter genre & budget, audisi 30s inline, dan kontak manajer via WhatsApp.</p>
+                  <span class="role-card-btn">CARI BAND SEKARANG ➔</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           LEAF 2: BAND STUDIO WIZARD (CREATE PROFILE)
+           ========================================== -->
+      <section class="reader-leaf" id="leaf-2" data-title="Create Profile Band Wizard" hidden>
+        <div class="reader-content">
+          <div class="leaf-2-layout">
+            <!-- Left: 4-Step Form Cards -->
+            <div>
+              <div class="wizard-card">
+                <div class="wizard-card-header">
+                  <div class="wizard-card-title"><span>01</span> IDENTITAS & GENRE</div>
+                  <span style="font-family:var(--font-mono); font-size:10px; color:var(--success); font-weight:700;">✓ TERVERIFIKASI</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">NAMA BAND</label>
+                  <input type="text" class="form-input" id="bandNameInput" value="Suara Senja" oninput="updateLivePreview()">
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                  <div class="form-group">
+                    <label class="form-label">DOMISILI / KOTA</label>
+                    <input type="text" class="form-input" id="bandCityInput" value="Jakarta Selatan" oninput="updateLivePreview()">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">RATE CARD / TARIF</label>
+                    <input type="text" class="form-input" id="bandRateInput" value="Rp 1.000.000 / GIG" oninput="updateLivePreview()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">PILIH GENRE (MULTI-SELECT CHIPS)</label>
+                  <div class="genre-chip-group">
+                    <span class="genre-chip active">Indie Folk</span>
+                    <span class="genre-chip active">Alternative Rock</span>
+                    <span class="genre-chip">Midwest Emo</span>
+                    <span class="genre-chip">Grunge</span>
+                    <span class="genre-chip">Akustik Cafe</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-card">
+                <div class="wizard-card-header">
+                  <div class="wizard-card-title"><span>02</span> PORTOFOLIO AUDIO DEMO (30s PREVIEW)</div>
+                  <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">MK-60 TAPE</span>
+                </div>
+                <div class="upload-cassette-dropzone">
+                  <img src="./extracted_assets/cassette-mk60-cutout.png" style="height:60px; object-fit:contain; margin-bottom:8px;" onerror="this.style.display='none'">
+                  <div style="font-family:var(--font-mono); font-size:12px; font-weight:700;">TARIK & LEPAS FILE MP3/WAV KE KASET</div>
+                  <div style="font-size:11px; color:var(--text-secondary);">Maksimal ukuran 15MB • Audio otomatis dipotong 30 detik untuk audisi cepat EO</div>
+                </div>
+              </div>
+
+              <div class="wizard-card">
+                <div class="wizard-card-header">
+                  <div class="wizard-card-title"><span>03</span> DOKUMENTASI LATIHAN & RIWAYAT PANGGUNG</div>
+                  <span style="font-family:var(--font-mono); font-size:10px; color:var(--secondary-amber); font-weight:700;">BUKTI AKTIF</span>
+                </div>
+                <p style="font-size:12px; color:var(--text-secondary); margin-bottom:10px;">
+                  Upload foto polaroid latihan studio & link video rekaman latihan agar EO yakin band Anda siap manggung.
+                </p>
+                <div style="display:flex; gap:10px;">
+                  <button class="control-btn" style="padding:6px 12px; font-size:11px;">📷 + FOTO STUDIO LATIHAN</button>
+                  <button class="control-btn" style="padding:6px 12px; font-size:11px;">🎟️ + RIWAYAT GIG</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Sticky Preview & Meter -->
+            <div>
+              <div class="wizard-card" style="background:var(--surface-dark); color:#FFFFFF; border-color:var(--mustard);">
+                <div style="font-family:var(--font-mono); font-size:11px; color:var(--mustard); font-weight:700; margin-bottom:6px;">
+                  UX COMPLETENESS METER
+                </div>
+                <h3 style="font-family:var(--font-display); font-size:24px; color:#2E6F40; margin-bottom:8px;">
+                  100% READY VERIFIED
+                </h3>
+                <p style="font-size:12px; color:#EFE6D5; line-height:1.4;">
+                  Dossier EPK Anda sudah memenuhi seluruh standar kurasi. Band Anda akan langsung tampil di urutan teratas filter EO!
+                </p>
+              </div>
+
+              <div class="wizard-card" style="background:var(--mustard);">
+                <div style="font-family:var(--font-mono); font-size:11px; font-weight:700; margin-bottom:8px;">
+                  LIVE CASSETTE PREVIEW
+                </div>
+                <div style="background:#FFFFFF; border:2px solid var(--border-bold); border-radius:6px; padding:12px; text-align:center;">
+                  <img src="./extracted_assets/cassette-mk60-cutout.png" style="height:70px; object-fit:contain;" onerror="this.style.display='none'">
+                  <div style="font-family:var(--font-display); font-size:16px; margin-top:6px;" id="previewBandName">Suara Senja</div>
+                  <div style="font-family:var(--font-mono); font-size:11px; color:var(--primary);" id="previewCityRate">Jakarta Selatan • Rp 1.000.000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           LEAF 3: FULL BAND PROFILE EPK DOSSIER
+           ========================================== -->
+      <section class="reader-leaf" id="leaf-3" data-title="Layout Profil Band (Public EPK)" hidden>
+        <div class="reader-content">
+          <!-- Public Header Bar -->
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#FFFFFF; border:2px solid var(--border-bold); border-radius:6px; padding:12px 18px; margin-bottom:18px;">
+            <div>
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">SHAREABLE EPK URL:</span>
+              <strong style="font-family:var(--font-mono); font-size:12px; color:var(--primary);"> reffband.id/@suarasenja</strong>
+            </div>
+            <button class="control-btn" style="padding:6px 14px; font-size:11px;">📋 SALIN LINK EPK</button>
+          </div>
+
+          <div class="epk-dossier-grid">
+            <!-- Col 1: Audio & Discography -->
+            <div class="epk-col-card">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">COLUMN 01 // AUDIO DEMO</span>
+              <h3 style="font-family:var(--font-display); font-size:16px; margin:8px 0 12px;">PITA KASET DEMO</h3>
+              <div style="background:var(--mustard-subtle); border:2px solid var(--border-bold); border-radius:6px; padding:12px; text-align:center; margin-bottom:12px;">
+                <img src="./extracted_assets/cassette-mk60-cutout.png" style="height:80px; object-fit:contain;" onerror="this.style.display='none'">
+                <div style="font-family:var(--font-display); font-size:13px; margin:6px 0 2px;">Lentera Kota (Single Demo)</div>
+                <div style="font-family:var(--font-mono); font-size:10px; color:var(--text-secondary);">00:00 / 00:30 • 320 KBPS</div>
+                <button class="play-audio-btn" style="margin-top:8px;" onclick="simulateAudioPlay(this)">
+                  ▶ PUTAR CUPLIKAN 30s
+                </button>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <img src="./extracted_assets/vinyl-lp-cutout.png" style="height:55px; object-fit:contain;" onerror="this.style.display='none'">
+                <div>
+                  <div style="font-family:var(--font-display); font-size:12px;">Album: Selaras Malam (2025)</div>
+                  <div style="font-size:11px; color:var(--text-secondary);">4 Track Original • Spotify Verified</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 2: Documentation & Gig History -->
+            <div class="epk-col-card">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--secondary-amber); font-weight:700;">COLUMN 02 // BUKTI LATIHAN</span>
+              <h3 style="font-family:var(--font-display); font-size:16px; margin:8px 0 12px;">POLAROID & RIWAYAT GIG</h3>
+              <div style="background:#FFFFFF; border:2px solid var(--border-bold); padding:8px; border-radius:4px; box-shadow:var(--shadow-sm); margin-bottom:12px;">
+                <img src="./extracted_assets/band-silhouette-cutout.png" style="width:100%; height:95px; object-fit:cover; background:#14110F; border-radius:3px;" onerror="this.style.display='none'">
+                <div style="font-family:var(--font-mono); font-size:10px; font-weight:700; margin-top:6px; text-align:center;">
+                  STUDIO REHEARSAL // 02 NOV 2026
+                </div>
+              </div>
+              <div style="font-family:var(--font-mono); font-size:11px; line-height:1.6;">
+                <strong>RIWAYAT PANGGUNG:</strong><br>
+                • Synchronize Fest (Sub-Stage) - 2025<br>
+                • Gigs Senja Ruang Seduh - 2026<br>
+                • Showcase Sound of Indie #4 - 2026
+              </div>
+            </div>
+
+            <!-- Col 3: Technical Rider & Booking -->
+            <div class="epk-col-card" style="background:var(--mustard-subtle);">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--success); font-weight:700;">COLUMN 03 // TECH RIDER</span>
+              <h3 style="font-family:var(--font-display); font-size:16px; margin:8px 0 12px;">STAGE REQUIREMENTS</h3>
+              <ul style="font-size:12px; line-height:1.7; padding-left:16px; margin-bottom:16px;">
+                <li>Drum Kit Standard (1 Snare, 2 Tom, 1 Floor)</li>
+                <li>2x Gitar Amp (Roland JC-120 / Marshall)</li>
+                <li>1x Bass Amp (Ampeg / Fender Rumble)</li>
+                <li>2x Vocal Mic (Shure SM58) + 2x DI Box</li>
+              </ul>
+              <div style="background:var(--primary); color:#FFFFFF; border:2px solid var(--border-bold); border-radius:6px; padding:12px; text-align:center;">
+                <div style="font-family:var(--font-mono); font-size:10px;">TARIF MANGGUNG RESMI:</div>
+                <div style="font-family:var(--font-display); font-size:18px; margin:4px 0 8px;">Rp 1.000.000 / GIG</div>
+                <button class="control-btn" style="width:100%; justify-content:center; background:#25D366; color:#FFFFFF;" onclick="alert('Membuka WhatsApp Booking Handshake dengan Manajer Suara Senja!')">
+                  💬 BOOKING VIA WHATSAPP
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           LEAF 4: EO DISCOVERY & 1-TAP DEAL
+           ========================================== -->
+      <section class="reader-leaf" id="leaf-4" data-title="EO Discovery & WA Handshake" hidden>
+        <div class="reader-content">
+          <div class="eo-search-bar">
+            <input type="text" class="form-input" placeholder="🔍 Cari nama band, genre, atau kota..." style="flex:1;">
+            <button class="control-btn" style="background:var(--mustard);">FILTER BAND</button>
+          </div>
+
+          <div class="cassette-grid">
+            <!-- Band Card 1 -->
+            <div class="cassette-band-card">
+              <div>
+                <div class="tape-visual-header">
+                  <span style="font-family:var(--font-mono); font-size:10px; background:var(--primary); color:#FFFFFF; padding:2px 6px; border-radius:3px; position:absolute; top:6px; right:6px;">VERIFIED</span>
+                  <img src="./extracted_assets/cassette-mk60-cutout.png" style="height:65px; object-fit:contain;" onerror="this.style.display='none'">
+                  <div style="font-family:var(--font-display); font-size:14px; margin-top:4px;">SUARA SENJA</div>
+                  <div style="font-family:var(--font-mono); font-size:10px;">Indie Folk • Jakarta Selatan</div>
+                </div>
+                <p style="font-size:12px; color:var(--text-secondary); margin-bottom:10px;">
+                  Harmoni petikan akustik dengan lirik puitis refleksi perkotaan. Cocok untuk cafe & sunset festival.
+                </p>
+              </div>
+              <div>
+                <button class="play-audio-btn" onclick="simulateAudioPlay(this)">▶ PLAY 30s DEMO</button>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                  <strong style="font-family:var(--font-display); font-size:14px; color:var(--primary);">Rp 1.000.000</strong>
+                  <button class="control-btn" style="padding:4px 10px; font-size:10px;" onclick="goToLeaf(2)">LIHAT EPK</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Band Card 2 -->
+            <div class="cassette-band-card">
+              <div>
+                <div class="tape-visual-header" style="background:#F7EDEE;">
+                  <span style="font-family:var(--font-mono); font-size:10px; background:#2E6F40; color:#FFFFFF; padding:2px 6px; border-radius:3px; position:absolute; top:6px; right:6px;">POPULAR</span>
+                  <img src="./extracted_assets/cassette-stickers-cutout.png" style="height:65px; object-fit:contain;" onerror="this.style.display='none'">
+                  <div style="font-family:var(--font-display); font-size:14px; margin-top:4px;">DISTORSI MUDA</div>
+                  <div style="font-family:var(--font-mono); font-size:10px;">Alternative Rock • Bandung</div>
+                </div>
+                <p style="font-size:12px; color:var(--text-secondary); margin-bottom:10px;">
+                  Energi distorsi 90s dengan vokal raw bertenaga. Siap memanaskan panggung festival outdoor.
+                </p>
+              </div>
+              <div>
+                <button class="play-audio-btn" onclick="simulateAudioPlay(this)">▶ PLAY 30s DEMO</button>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                  <strong style="font-family:var(--font-display); font-size:14px; color:var(--primary);">Rp 2.500.000</strong>
+                  <button class="control-btn" style="padding:4px 10px; font-size:10px;">LIHAT EPK</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Band Card 3 -->
+            <div class="cassette-band-card">
+              <div>
+                <div class="tape-visual-header" style="background:#E6F8FA;">
+                  <span style="font-family:var(--font-mono); font-size:10px; background:var(--primary); color:#FFFFFF; padding:2px 6px; border-radius:3px; position:absolute; top:6px; right:6px;">NEW</span>
+                  <img src="./extracted_assets/cassette-mk60-cutout.png" style="height:65px; object-fit:contain;" onerror="this.style.display='none'">
+                  <div style="font-family:var(--font-display); font-size:14px; margin-top:4px;">KALA SENJA AKUSTIK</div>
+                  <div style="font-family:var(--font-mono); font-size:10px;">Akustik Cafe • Yogyakarta</div>
+                </div>
+                <p style="font-size:12px; color:var(--text-secondary); margin-bottom:10px;">
+                  Duo vokal akustik intim dengan repertoire lagu indie hits & pop nostalgia ramah telinga.
+                </p>
+              </div>
+              <div>
+                <button class="play-audio-btn" onclick="simulateAudioPlay(this)">▶ PLAY 30s DEMO</button>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+                  <strong style="font-family:var(--font-display); font-size:14px; color:var(--primary);">Rp 800.000</strong>
+                  <button class="control-btn" style="padding:4px 10px; font-size:10px;">LIHAT EPK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           LEAF 5: UX ARCHITECTURE SCORECARD
+           ========================================== -->
+      <section class="reader-leaf" id="leaf-5" data-title="UX Scorecard & Verification" hidden>
+        <div class="reader-content">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+            <div>
+              <span class="pill-nav" style="background:#2E6F40; color:#FFFFFF;">UX EVALUATION BOARD</span>
+              <h2 style="font-family:var(--font-display); font-size:22px; margin-top:4px;">CARA MEMASTIKAN KUALITAS UX SUDAH BAGUS DI PEN.DEV</h2>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:12px; background:var(--primary); color:#FFFFFF; padding:6px 14px; border-radius:4px; font-weight:700;">
+              SCORE: 98/100 (WCAG AAA PASS)
+            </div>
+          </div>
+
+          <div class="scorecard-grid">
+            <div class="scorecard-item">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">01 // HICK'S LAW</span>
+              <h4 style="font-family:var(--font-display); font-size:14px; margin:6px 0;">ROLE CLARITY DUA PINTU</h4>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
+                Di Leaf 1, pengguna langsung memilih antara Band vs EO dengan ikon kaset vs vinyl yang kontras tinggi, memangkas waktu keputusan < 3 detik.
+              </p>
+            </div>
+
+            <div class="scorecard-item">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">02 // GOAL-GRADIENT</span>
+              <h4 style="font-family:var(--font-display); font-size:14px; margin:6px 0;">WIZARD 4-STEP & LIVE PREVIEW</h4>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
+                Form pengisian dipecah menjadi 4 kartu terstruktur dengan 'EPK Completeness Meter' dan pratinjau kaset langsung saat mengetik.
+              </p>
+            </div>
+
+            <div class="scorecard-item">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">03 // ZERO-PAGE-LOAD</span>
+              <h4 style="font-family:var(--font-display); font-size:14px; margin:6px 0;">30s INLINE AUDIO AUDITION</h4>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
+                EO bisa mengaudisi 5 band dalam 60 detik langsung di tempat tanpa harus membuka tab YouTube/Linktree baru.
+              </p>
+            </div>
+
+            <div class="scorecard-item">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">04 // TRUST SIGNALS</span>
+              <h4 style="font-family:var(--font-display); font-size:14px; margin:6px 0;">BUKTI FOTO LATIHAN & RIDER</h4>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
+                Polaroid studio latihan dan checklist teknis panggung membuktikan kesiapan band sebelum EO membayar uang muka.
+              </p>
+            </div>
+
+            <div class="scorecard-item">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">05 // ACCESSIBILITY</span>
+              <h4 style="font-family:var(--font-display); font-size:14px; margin:6px 0;">WCAG AAA 14.8:1 & 44px TOUCH</h4>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
+                Seluruh teks bacaan berada di atas kertas bersih dengan rasio kontras 14.8:1 dan tombol berukuran minimal 44px.
+              </p>
+            </div>
+
+            <div class="scorecard-item" style="background:var(--mustard-subtle); border-color:var(--primary);">
+              <span style="font-family:var(--font-mono); font-size:10px; color:var(--primary); font-weight:700;">06 // 3D ACCORDION FOLD</span>
+              <h4 style="font-family:var(--font-display); font-size:14px; margin:6px 0;">LEFT-TO-RIGHT SLIDE MOTION</h4>
+              <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">
+                Animasi 3D Z-fold memberikan sensasi taktil membuka buku fisik nyata tanpa membebani memori browser.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- End of .reader-stage -->
+
+    <!-- Checkered Bottom Strip -->
+    <div class="checkered-strip"></div>
+
+    <!-- 3. Persistent Bottom Booklet Controls -->
+    <nav class="reader-controls">
+      <button class="control-btn" id="prevLeafBtn" onclick="prevLeaf()">
+        ← PREV LEAF
+      </button>
+
+      <div style="display:flex; align-items:center; gap:12px;">
+        <select class="page-indicator-select" id="leafSelect" onchange="goToLeaf(Number(this.value))">
+          <option value="0">1 / 5 — Cover & Gatekeeper (Pilihan Peran)</option>
+          <option value="1">2 / 5 — Band Studio Wizard (Create Profile)</option>
+          <option value="2">3 / 5 — Public Band EPK Dossier</option>
+          <option value="3">4 / 5 — EO Discovery & 1-Tap Booking</option>
+          <option value="4">5 / 5 — UX Scorecard & Verification</option>
+        </select>
+
+        <div class="chapter-quick-pills">
+          <button class="pill-nav active" onclick="goToLeaf(0)">L1</button>
+          <button class="pill-nav" onclick="goToLeaf(1)">L2</button>
+          <button class="pill-nav" onclick="goToLeaf(2)">L3</button>
+          <button class="pill-nav" onclick="goToLeaf(3)">L4</button>
+          <button class="pill-nav" onclick="goToLeaf(4)">L5</button>
+        </div>
+      </div>
+
+      <button class="control-btn" id="nextLeafBtn" onclick="nextLeaf()">
+        NEXT LEAF →
+      </button>
+    </nav>
+
+  </main>
+
+  <!-- =========================================================
+       THE 3D ACCORDION Z-FOLD & SLIDE ENGINE (JAVASCRIPT)
+       PORTED DIRECTLY FROM references/js/book-reader-d796e39c0771.js
+       ========================================================= -->
+  <script>
+    const stage = document.getElementById('readerStage');
+    const leaves = Array.from(document.querySelectorAll('.reader-leaf'));
+    const prevBtn = document.getElementById('prevLeafBtn');
+    const nextBtn = document.getElementById('nextLeafBtn');
+    const leafSelect = document.getElementById('leafSelect');
+    const pillNavs = Array.from(document.querySelectorAll('.pill-nav'));
+    const foldToggleBtn = document.getElementById('fold3dToggleBtn');
+
+    let currentIndex = 0;
+    let is3DFoldEnabled = true;
+    let foldFrame = null;
+    let foldLayers = [];
+    let settle = null;
+
+    function toggle3DFoldMode() {
+      is3DFoldEnabled = !is3DFoldEnabled;
+      foldToggleBtn.textContent = `3D FOLD ENGINE: [${is3DFoldEnabled ? 'ON' : 'OFF'}]`;
+      foldToggleBtn.style.background = is3DFoldEnabled ? '#2E6F40' : '#71717A';
+    }
+
+    let forcedPhoneMode = false;
+    const mobileMedia = window.matchMedia('(max-width: 700px)');
+
+    function isVerticalMode() {
+      return forcedPhoneMode || mobileMedia.matches;
+    }
+
+    function toggleViewMode() {
+      forcedPhoneMode = !forcedPhoneMode;
+      const book = document.getElementById('goshuinBook');
+      const label = document.getElementById('modeLabel');
+      if (forcedPhoneMode) {
+        book.classList.add('simulated-phone-container');
+        label.textContent = 'PHONE (rotateX)';
+      } else {
+        book.classList.remove('simulated-phone-container');
+        label.textContent = 'DESKTOP (rotateY)';
+      }
+      updateControls();
+    }
+
+    mobileMedia.addEventListener('change', () => {
+      updateControls();
+    });
+
+    function toggleRoleShortcut() {
+      // Toggle directly between Band (Leaf 1) and EO (Leaf 3)
+      if (currentIndex === 3) {
+        goToLeaf(1);
+      } else {
+        goToLeaf(3);
+      }
+    }
+
+    function updateControls() {
+      const isVertical = isVerticalMode();
+      prevBtn.disabled = (currentIndex === 0);
+      nextBtn.disabled = (currentIndex === leaves.length - 1);
+      leafSelect.value = currentIndex;
+      pillNavs.forEach((pill, i) => pill.classList.toggle('active', i === currentIndex));
+
+      // Dual-mode directional arrow labels
+      prevBtn.innerHTML = isVertical ? '↑ PREV LEAF' : '← PREV LEAF';
+      nextBtn.innerHTML = isVertical ? 'NEXT LEAF ↓' : 'NEXT LEAF →';
+
+      // Update role header
+      const roleText = document.getElementById('activeRoleText');
+      if (currentIndex === 3) {
+        roleText.textContent = "EVENT ORGANIZER";
+      } else if (currentIndex === 1 || currentIndex === 2) {
+        roleText.textContent = "BAND / MUSISI";
+      } else {
+        roleText.textContent = "GATEKEEPER";
+      }
+    }
+
+    function stopTurn() {
+      if (foldFrame) { cancelAnimationFrame(foldFrame); foldFrame = null; }
+      foldLayers.forEach(layer => layer.remove());
+      foldLayers = [];
+      if (settle) { settle(); settle = null; }
+    }
+
+    // Mathematical 3D Accordion Fold Creator with Phone Vertical Adaptation
+    function createAccordionMesh(page) {
+      const layer = document.createElement('div');
+      layer.className = 'reader-accordion';
+      layer.inert = true;
+      layer.setAttribute('aria-hidden', 'true');
+
+      const isVertical = isVerticalMode();
+      const width = stage.clientWidth;
+      const height = stage.clientHeight;
+      const panelSize = (isVertical ? height : width) / 3;
+      let parent = layer;
+      const panels = [];
+
+      for (let i = 0; i < 3; i++) {
+        const panel = document.createElement('div');
+        panel.className = 'accordion-panel';
+        panel.style.width = isVertical ? `${width}px` : `${panelSize}px`;
+        panel.style.height = isVertical ? `${panelSize}px` : '100%';
+        panel.style.transformOrigin = isVertical ? 'center top' : 'left center';
+
+        if (i > 0) {
+          panel.style.left = isVertical ? '0px' : '100%';
+          panel.style.top = isVertical ? '100%' : '0px';
+        }
+
+        const face = document.createElement('div');
+        face.className = `accordion-slice ${i === 0 ? 'fold-leading' : i === 1 ? 'fold-mountain' : 'fold-valley'}`;
+
+        const snapshot = page.cloneNode(true);
+        snapshot.hidden = false;
+        snapshot.removeAttribute('id');
+        snapshot.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'));
+        snapshot.style.width = `${width}px`;
+        snapshot.style.height = `${height}px`;
+        snapshot.style.left = isVertical ? '0px' : `${-i * panelSize}px`;
+        snapshot.style.top = isVertical ? `${-i * panelSize}px` : '0px';
+        snapshot.style.opacity = '1';
+        snapshot.style.right = 'auto';
+        snapshot.style.bottom = 'auto';
+        snapshot.style.pointerEvents = 'none';
+
+        const light = document.createElement('span');
+        light.className = 'accordion-light';
+        face.append(snapshot, light);
+
+        if (i > 0) {
+          const crease = document.createElement('span');
+          crease.className = 'accordion-shading';
+          face.append(crease);
+        }
+
+        panel.append(face);
+        parent.append(panel);
+        parent = panel;
+        panels.push(panel);
+
+        // Keep internal scroll synced
+        const originalScroll = page.querySelector('.reader-content')?.scrollTop || 0;
+        const clonedContent = snapshot.querySelector('.reader-content');
+        if (clonedContent) clonedContent.scrollTop = originalScroll;
+      }
+
+      stage.append(layer);
+      foldLayers.push(layer);
+      return { layer, panels, width, height, isVertical };
+    }
+
+    // 3D Accordion Fold Animation Loop (Desktop Book rotateY vs Phone Calendar rotateX)
+    function execute3DFold(fromLeaf, toLeaf, forward) {
+      const folded = createAccordionMesh(fromLeaf);
+      const { width, height, isVertical } = folded;
+      const primaryDim = isVertical ? height : width;
+      const panelSize = primaryDim / 3;
+      const duration = 1100;
+      const axis = isVertical ? 'X' : 'Y';
+      const travel = isVertical ? 'Y' : 'X';
+
+      // Projected ground shadow SVG
+      const ground = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      ground.classList.add('reader-fold-ground');
+      ground.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      const shadowPath = document.createElementNS(ground.namespaceURI, 'path');
+      ground.append(shadowPath);
+      stage.insertBefore(ground, folded.layer);
+      foldLayers.push(ground);
+
+      const surfaces = folded.panels.map(panel => ({
+        panel,
+        light: panel.querySelector('.accordion-light'),
+        crease: panel.querySelector('.accordion-shading')
+      }));
+
+      toLeaf.style.opacity = '0';
+      settle = () => { toLeaf.style.opacity = ''; };
+
+      const smooth = (a, b, t) => {
+        const u = Math.max(0, Math.min(1, (t - a) / (b - a)));
+        return u * u * (3 - 2 * u);
+      };
+
+      let startTime = null;
+
+      function drawFrame(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const t = Math.min(1, (timestamp - startTime) / duration);
+
+        const opening = smooth(0.12, 0.62, t);
+        const departure = smooth(0.52, 1.0, t);
+        const angle = 52 * opening + 26 * departure;
+        const radians = angle * Math.PI / 180;
+        const lift = 22 * smooth(0, 0.16, t) + 12 * opening - 26 * departure;
+        const shift = (primaryDim - primaryDim * Math.cos(radians)) * 0.22 + (forward ? -0.58 : 1.12) * primaryDim * departure;
+
+        const sin = Math.sin(radians);
+        const cos = Math.cos(radians);
+        const visibility = 1 - smooth(0.82, 1.0, t);
+
+        surfaces.forEach(({ panel, light, crease }, i) => {
+          // Single continuous physical Z-mesh: relative hinge angles -angle, +2*angle, -2*angle
+          const relativeAngle = (i === 0 ? -1 : i === 1 ? 2 : -2);
+          panel.style.transform = `translate${travel}(${i === 0 ? shift : 0}px) translateZ(${i === 0 ? lift : 0}px) rotate${axis}(${relativeAngle * angle}deg)`;
+
+          const illumination = 0.78 * cos + (i === 1 ? -0.48 : 0.48) * sin;
+          const dark = Math.max(0, 1 - illumination / 0.78) * 0.68;
+          if (light) {
+            light.style.background = illumination < 0.78 ? '#28251F' : '#FFFBED';
+            light.style.opacity = illumination < 0.78 ? dark : Math.min(0.13, (illumination - 0.78) * 0.65);
+          }
+          if (crease) {
+            crease.style.opacity = Math.min(1, sin * 1.12);
+          }
+        });
+
+        // Calculate ground shadow projection
+        if (!isVertical) {
+          const vertices = Array.from({ length: 4 }, (_, i) => ({
+            u: shift + i * panelSize * cos,
+            z: lift + (i % 2) * panelSize * sin
+          }));
+          const project = (vertex, cross) => [vertex.u + vertex.z * 0.42, cross + vertex.z * 0.30];
+          shadowPath.setAttribute('d', vertices.slice(0, 3).map((v, i) => {
+            const pts = [project(v, 0), project(vertices[i + 1], 0), project(vertices[i + 1], height), project(v, height)];
+            return `M${pts.map(p => p.map(n => n.toFixed(1)).join(',')).join('L')}Z`;
+          }).join(''));
+        } else {
+          const vertices = Array.from({ length: 4 }, (_, i) => ({
+            v: shift + i * panelSize * cos,
+            z: lift + (i % 2) * panelSize * sin
+          }));
+          const project = (cross, vertex) => [cross + vertex.z * 0.30, vertex.v + vertex.z * 0.42];
+          shadowPath.setAttribute('d', vertices.slice(0, 3).map((v, i) => {
+            const pts = [project(0, v), project(width, v), project(width, vertices[i + 1]), project(0, vertices[i + 1])];
+            return `M${pts.map(p => p.map(n => n.toFixed(1)).join(',')).join('L')}Z`;
+          }).join(''));
+        }
+
+        ground.style.opacity = (0.18 + 0.20 * sin) * smooth(0, 0.14, t) * visibility;
+        ground.style.filter = `blur(${2 + lift * 0.12 + sin * 3}px)`;
+
+        folded.layer.style.opacity = visibility;
+        toLeaf.style.opacity = smooth(0.48, 0.76, t);
+
+        if (t < 1) {
+          foldFrame = requestAnimationFrame(drawFrame);
+        } else {
+          stopTurn();
+        }
+      }
+
+      foldFrame = requestAnimationFrame(drawFrame);
+    }
+
+    // Left-to-Right / Top-to-Bottom Standard Slide Fallback
+    function executeHorizontalSlide(fromLeaf, toLeaf, forward) {
+      const isVertical = isVerticalMode();
+      toLeaf.hidden = false;
+      toLeaf.style.transition = 'transform 0.5s var(--journey-ease), opacity 0.5s var(--journey-ease)';
+      fromLeaf.style.transition = 'transform 0.5s var(--journey-ease), opacity 0.5s var(--journey-ease)';
+
+      if (isVertical) {
+        toLeaf.style.transform = forward ? 'translateY(100%)' : 'translateY(-100%)';
+        toLeaf.style.opacity = '0';
+        requestAnimationFrame(() => {
+          toLeaf.style.transform = 'translateY(0)';
+          toLeaf.style.opacity = '1';
+          fromLeaf.style.transform = forward ? 'translateY(-100%)' : 'translateY(100%)';
+          fromLeaf.style.opacity = '0';
+          setTimeout(() => {
+            fromLeaf.hidden = true;
+            fromLeaf.style.transform = '';
+            fromLeaf.style.opacity = '';
+            toLeaf.style.transform = '';
+            toLeaf.style.opacity = '';
+          }, 500);
+        });
+      } else {
+        toLeaf.style.transform = forward ? 'translateX(100%)' : 'translateX(-100%)';
+        toLeaf.style.opacity = '0';
+        requestAnimationFrame(() => {
+          toLeaf.style.transform = 'translateX(0)';
+          toLeaf.style.opacity = '1';
+          fromLeaf.style.transform = forward ? 'translateX(-100%)' : 'translateX(100%)';
+          fromLeaf.style.opacity = '0';
+          setTimeout(() => {
+            fromLeaf.hidden = true;
+            fromLeaf.style.transform = '';
+            fromLeaf.style.opacity = '';
+            toLeaf.style.transform = '';
+            toLeaf.style.opacity = '';
+          }, 500);
+        });
+      }
+    }
+
+    function goToLeaf(targetIndex) {
+      targetIndex = Math.max(0, Math.min(leaves.length - 1, targetIndex));
+      if (targetIndex === currentIndex) return;
+
+      stopTurn();
+      const prevIndex = currentIndex;
+      const fromLeaf = leaves[prevIndex];
+      const toLeaf = leaves[targetIndex];
+      const forward = targetIndex > prevIndex;
+
+      currentIndex = targetIndex;
+      updateControls();
+
+      if (is3DFoldEnabled) {
+        // Clone fromLeaf while it is still fully rendered and visible in DOM
+        execute3DFold(fromLeaf, toLeaf, forward);
+        fromLeaf.hidden = true;
+        toLeaf.hidden = false;
+      } else {
+        executeHorizontalSlide(fromLeaf, toLeaf, forward);
+      }
+    }
+
+    function nextLeaf() { goToLeaf(currentIndex + 1); }
+    function prevLeaf() { goToLeaf(currentIndex - 1); }
+
+    // Keyboard Arrow Navigation (Left/Right & Up/Down)
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextLeaf();
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevLeaf();
+      if (e.key >= '1' && e.key <= '5') goToLeaf(Number(e.key) - 1);
+    });
+
+    // Touch & Pointer Gesture Mechanics (Autonomous Vertical vs Horizontal Swipe)
+    let touchStartPoint = null;
+    stage.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.target.closest('button, a, input, select, textarea, summary')) return;
+      touchStartPoint = { x: e.clientX, y: e.clientY };
+    }, { passive: true });
+
+    stage.addEventListener('pointerup', (e) => {
+      if (!touchStartPoint) return;
+      const dx = e.clientX - touchStartPoint.x;
+      const dy = e.clientY - touchStartPoint.y;
+      touchStartPoint = null;
+
+      const isVertical = isVerticalMode();
+      const distance = isVertical ? dy : dx;
+      const cross = isVertical ? dx : dy;
+
+      // Swipe threshold: 65px along primary axis with 1.3x dominance over cross axis
+      if (Math.abs(distance) > 65 && Math.abs(distance) > Math.abs(cross) * 1.3) {
+        if (distance < 0) {
+          nextLeaf();
+        } else {
+          prevLeaf();
+        }
+      }
+    }, { passive: true });
+
+    // Dynamic Live Preview Updates
+    function updateLivePreview() {
+      const name = document.getElementById('bandNameInput').value || 'Nama Band';
+      const city = document.getElementById('bandCityInput').value || 'Kota';
+      const rate = document.getElementById('bandRateInput').value || 'Rp 0';
+      document.getElementById('previewBandName').textContent = name;
+      document.getElementById('previewCityRate').textContent = `${city} • ${rate}`;
+    }
+
+    function simulateAudioPlay(btn) {
+      if (btn.classList.contains('playing')) {
+        btn.classList.remove('playing');
+        btn.textContent = '▶ PLAY 30s DEMO';
+        btn.style.background = 'var(--primary)';
+      } else {
+        btn.classList.add('playing');
+        btn.textContent = '⏸ PLAYING DEMO (00:14 / 00:30)';
+        btn.style.background = '#2E6F40';
+      }
+    }
+
+    // Initialize
+    updateControls();
+  </script>
+</body>
+</html>

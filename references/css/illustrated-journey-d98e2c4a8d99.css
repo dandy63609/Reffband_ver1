@@ -1,0 +1,207 @@
+/* A journey in paper, vermilion and ink. All content stays visible without JS. */
+:root { --journey-ease: cubic-bezier(.22,.68,.2,1); --forest: #2f493e; }
+body { background: #fdfcf9; }
+.site-header { box-shadow: none; width: 100%; padding-inline: max(28px, calc((100vw - 1140px) / 2)); }
+.site-header .brand { font-size: 27px; }
+.illustrated-hero { position: relative; isolation: isolate; display: flex; align-items: center; width: 100%; max-width: 1800px; margin: auto; padding: 82px max(40px, calc((100vw - 1140px) / 2)) 96px; overflow: hidden; background: #f7f3e9; }
+.illustrated-hero .hero-copy { position: relative; z-index: 2; width: 490px; }
+.illustrated-hero .kicker { font-size: 10px; letter-spacing: .18em; }
+.illustrated-hero h1 { line-height: 1.12; letter-spacing: -.055em; }
+.illustrated-hero h1 em { font-weight: 400; color: #923b32; }
+.illustrated-hero .lead { font-size: 15px; line-height: 1.95; color: #5c5a50; }
+.illustrated-hero .actions { gap: 22px; margin-top: 28px; }
+.illustrated-hero .first-visit-link { display: none; }
+.illustrated-hero .meta { font-size: 10px; }
+.illustrated-hero .hero-trust { font-size: 10px; margin-top: 25px; }
+.journey-scene { position: absolute; inset: 0 0 0 28%; z-index: 0; overflow: hidden; }
+.journey-scene::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#f7f3e9 0%,#f7f3e9f5 16%,#f7f3e9bb 32%,transparent 60%); pointer-events: none; }
+.journey-scene>img { width: 100%; height: 100%; object-fit: cover; object-position: 58% center; }
+.journey-scene figcaption { position: absolute; z-index: 1; display: flex; gap: 20px; align-items: center; color: #3d473d; }
+.journey-scene figcaption span:first-child { font: 19px var(--serif); letter-spacing: .25em; }
+.journey-scene figcaption span:last-child { font-size: 8px; letter-spacing: .17em; }
+.journey-chapters { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 1px solid var(--line); }
+.journey-chapters a { display: flex; gap: 20px; align-items: center; text-decoration: none; font-size: 12px; padding: 9px 30px; border-left: 1px solid var(--line); }
+.journey-chapters a:first-child { padding-left: 0; border-left: 0; }
+.journey-chapters a:last-child { padding-right: 0; }
+.chapter-index { font: italic 20px var(--serif); color: #943e37; }
+.journey-chapters a>span:last-child { margin-left: auto; transition: transform 240ms var(--journey-ease); }
+.journey-chapters a:hover>span:last-child { transform: translate(3px,-3px); }
+.features.section { border-top: 0; padding-top: 70px; }
+.app-tour { position: relative; overflow: hidden; border-radius: 3px; background: #eaece4; }
+.app-tour::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #943e37; transform: scaleX(var(--chapter-progress,.25)); transform-origin: left; transition: transform 400ms var(--journey-ease); }
+.tour-controls button { border-radius: 2px; }
+.tour-controls button[aria-pressed=true] { background: #fdfcf9; box-shadow: 0 3px 16px #303a2810; }
+.tour-stage { position: relative; }
+.tour-stage::before { content: ''; position: absolute; aspect-ratio: 1; border: 1px solid #b6beac; border-radius: 50%; align-self: center; pointer-events: none; }
+.is-enhanced .tour-stage figure { position: relative; }
+.tour-stage img { box-shadow: 0 25px 55px -20px #273b3940; }
+.feature-list .number { font-style: italic; }
+.illustrated-closing { position: relative; isolation: isolate; overflow: hidden; padding: 70px 52px; margin-bottom: 60px; border: 1px solid #e7dfcf; background: #f7f3e9; }
+.illustrated-closing h2,.illustrated-closing>.button { position: relative; z-index: 1; }
+.illustrated-closing h2 { font-size: clamp(30px,3.4vw,46px); }
+.closing-art { position: absolute; inset: 0; opacity: .23; pointer-events: none; }
+.closing-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 57%; }
+.closing-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#f7f3e9,transparent); }
+.button { border-radius: 2px; transition: background 220ms, transform 220ms; }
+.button:hover { background: #722c27; }
+.button span { transition: transform 220ms; }
+.button:hover span { transform: translate(2px,-2px); }
+.skip:focus { z-index: 50; }
+@media (min-width:1800px) {
+  .illustrated-hero { padding-inline: 200px; }
+}
+@media (min-width:701px) and (max-width:1050px) {
+  .illustrated-hero { padding-inline: 32px; min-height: 660px; }
+  .illustrated-hero .hero-copy { max-width: 53%; }
+  .illustrated-hero h1 { font-size: 61px; }
+  .journey-scene { left: 22%; }
+  .site-header nav { gap: 13px; font-size: 11px; }
+  .journey-chapters a { gap: 12px; padding-inline: 17px; }
+  .app-tour { padding: 36px; }
+}
+@media (max-width:700px) {
+  .site-header .brand { font-size: 24px; }
+  .illustrated-hero { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .illustrated-hero .hero-copy { width: auto; }
+  .illustrated-hero h1 { line-height: 1.1; }
+  main[lang=ja] .illustrated-hero h1 { font-size: clamp(42px,11.7vw,64px); }
+  .illustrated-hero .kicker { font-size: 9px; margin-bottom: 20px; }
+  .illustrated-hero .lead { font-size: 14px; max-width: 410px; }
+  .illustrated-hero .actions { margin-top: 23px; gap: 18px; }
+  .illustrated-hero .hero-trust { margin-top: 20px; }
+  .illustrated-hero .meta { margin-top: 8px; }
+  .journey-scene { position: relative; inset: auto; height: auto; }
+  .journey-scene>img { object-position: center 63%; }
+  .journey-scene::after { background: linear-gradient(#f7f3e9 0%,#f7f3e980 13%,transparent 32%); }
+  .journey-scene figcaption { gap: 10px; background: #f7f3e9d9; }
+  .journey-scene figcaption span:first-child { font-size: 14px; }
+  .journey-scene figcaption span:last-child { font-size: 7px; }
+  .journey-chapters { gap: 0; }
+  .journey-chapters a { padding: 4px 12px; gap: 6px; flex-wrap: wrap; font-size: 10px; align-content: start; }
+  .journey-chapters .chapter-index { width: 100%; font-size: 18px; }
+  .journey-chapters a>span:last-child { display: none; }
+  .features.section { padding-top: 40px; }
+  .tour-stage::before { width: 100%; max-width: 310px; }
+  .illustrated-closing { padding: 38px 26px; margin-bottom: 35px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .journey-chapters a>span:last-child,.app-tour::before,.button span { transition: none; }
+}
+@media (max-width:700px) {
+  .site-header nav { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; gap: 22px; scrollbar-width: none; padding-block: 8px 10px; }
+  .site-header nav::-webkit-scrollbar { display: none; }
+  .site-header nav a { flex: 0 0 auto; }
+  .site-header { padding-bottom: 0; padding-inline: 18px; }
+  .journey-scene::after { z-index: 1; }
+  .journey-scene figcaption { z-index: 2; }
+}
+/* An editorial rhythm: arrival, a pocket guide, ink on paper, a forest. */
+.illustrated-hero { min-height: 650px; padding-block: 66px 78px; }
+.illustrated-hero .hero-copy { max-width: 47%; }
+.illustrated-hero h1 { font-size: clamp(54px,5.5vw,80px); }
+.illustrated-hero .lead { max-width: 370px; }
+.journey-scene { left: 30%; }
+.journey-scene>img { transition: transform 180ms ease-out; }
+.journey-scene figcaption { bottom: 30px; right: 32px; padding: 8px 12px; background: #f7f3e9de; }
+.scene-replay { min-height: 44px; position: absolute; z-index: 3; left: max(40px,calc((100vw - 1140px)/2)); bottom: 20px; border: 0; padding: 8px 0; background: none; color: #6c665a; font: 10px var(--sans); letter-spacing: .07em; cursor: pointer; }
+.scene-replay span { display: inline-block; margin-right: 7px; font-size: 17px; vertical-align: middle; }
+.scene-replay:hover { color: #943e37; }
+.journey-chapters { padding-block: 21px; }
+.app-tour { padding: 44px 50px; }
+.app-tour.is-enhanced { grid-template-columns: 1.12fr .88fr; gap: 64px; }
+.is-enhanced .tour-stage { min-height: 530px; }
+.is-enhanced .tour-stage figure { max-width: 235px; }
+.tour-stage::before { width: 100%; border-style: dotted; opacity: .65; }
+.tour-controls button { padding: 15px 14px; }
+.tour-copy>h2 { font-size: clamp(32px,3vw,42px); }
+.feature-list { padding-block: 30px; }
+.feature-list article { padding-right: 20px; }
+.feature-list article+article { border-left: 1px solid var(--line); padding-left: 50px; }
+.feature-list article+article .number { left: 12px; }
+.purpose { grid-template-columns: .92fr 1.08fr; gap: 90px; align-items: start; }
+.purpose>div:first-child { position: sticky; top: 118px; }
+.purpose h2 { font-size: clamp(34px,3.3vw,46px); }
+.purpose-copy { padding-top: 0; }
+.memory-stamp { margin-top: 30px; max-width: 440px; }
+.stamp-paper { position: relative; display: flex; flex-direction: column; align-items: center; padding: 26px 24px 28px; background: #fff; border: 1px solid #ece9df; }
+.stamp-paper::before,.stamp-paper::after { content: ''; position: absolute; width: 17px; height: 17px; border-color: #b8ae9c; border-style: solid; pointer-events: none; }
+.stamp-paper::before { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+.stamp-paper::after { right: 12px; bottom: 12px; border-width: 0 1px 1px 0; }
+.stamp-artwork { display: block; width: min(58%,220px); height: auto; overflow: visible; }
+.stamp-signature { margin-top: 12px; text-align: center; font: 21px/1.5 ui-monospace,SFMono-Regular,monospace; letter-spacing: .12em; }
+.stamp-signature span { display: block; font: 9px/1.7 var(--sans); letter-spacing: .18em; margin-top: 8px; color: #77736a; text-transform: uppercase; }
+.memory-stamp figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 0; font: 9px var(--sans); letter-spacing: .1em; color: #7b7265; }
+.memory-stamp button { border: 0; padding: 10px 0 10px 12px; background: none; color: #943e37; font: 11px var(--sans); cursor: pointer; min-height: 44px; }
+.memory-stamp button span { font-size: 17px; margin-left: 6px; }
+.culture { background: #293f36; color: #f4f0e5; position: relative; overflow: hidden; }
+.culture .section { position: relative; }
+.culture::before { content: '参'; position: absolute; right: -20px; top: -120px; color: #edf0df05; font: 560px/1 var(--serif); pointer-events: none; }
+.culture .kicker { color: #d6b9a0; }
+.culture-heading>p { color: #d1d7cb; }
+.culture-grid { gap: 0; margin-top: 52px; }
+.culture-grid article { border-top: 1px solid #8e9c8166; padding: 30px 30px 10px 0; position: relative; }
+.culture-grid article+article { border-left: 1px solid #8e9c8144; padding-left: 30px; }
+.culture-symbol { color: #e7c1a4; font-size: 30px; }
+.culture-grid h3 { font-size: 23px; }
+.culture-grid p { color: #ced6c9; }
+.culture-sources { color: #c8cfbc; margin-top: 24px; }
+.culture a:hover { color: #fff; }
+.history-story { border-color: #8e9c8155; }
+.history-date { background: #314c41; border-color: #a7b29a77; color: #ead9bc; }
+.history-date::after { border-color: #a7b29a77; }
+.history-story p:not(.kicker) { color: #ced6c9; }
+.history-story .text-link { color: #ead9bc; }
+.scan-heading { max-width: 680px; }
+.scan-steps { position: relative; }
+.scan-step-number { position: relative; z-index: 1; background: var(--paper); }
+.scan-steps li { position: relative; }
+.scan-steps li::before { content: ''; display: block; width: 100%; height: 1px; background: #c7b9a0; position: absolute; top: 23px; left: 0; transform-origin: left; }
+.scan-steps li:last-child::before { width: 45%; }
+.scan-step-number { display: inline-grid; place-items: center; min-width: 46px; height: 46px; border: 1px solid #c7b9a0; border-radius: 50%; margin-bottom: 18px; }
+@media (max-width:1050px) and (min-width:701px) {
+  .illustrated-hero { min-height: 620px; }
+  .illustrated-hero .hero-copy { max-width: 51%; }
+  .illustrated-hero h1 { font-size: 59px; }
+  .journey-scene { left: 25%; }
+  .app-tour { padding: 34px; }
+  .app-tour.is-enhanced { gap: 35px; }
+  .purpose { gap: 45px; }
+  .is-enhanced .tour-stage { min-height: 500px; }
+  .culture-grid article { padding-right: 22px; }
+  .culture-grid article+article { padding-left: 22px; }
+}
+@media (max-width:700px) {
+  .illustrated-hero { min-height: 0; padding: 34px 0 0; }
+  .illustrated-hero .hero-copy { max-width: none; margin-inline: 24px; }
+  .illustrated-hero h1 { font-size: clamp(46px,11.8vw,68px); }
+  .illustrated-hero .lead { line-height: 1.85; margin-top: 20px; }
+  .journey-scene { left: auto; margin-top: 14px; aspect-ratio: 1.4; }
+  .journey-scene>img { position: absolute; inset: 0; }
+  .journey-scene figcaption { right: 14px; bottom: 12px; padding: 7px 10px; }
+  .scene-replay { left: 24px; bottom: 15px; padding: 7px 10px; background: #f7f3e9e6; font-size: 9px; }
+  .journey-scene figcaption span:last-child { display: none; }
+  .journey-chapters { padding-block: 18px; }
+  .app-tour { padding: 29px 20px; }
+  .app-tour.is-enhanced { grid-template-columns: 1fr; gap: 26px; }
+  .tour-copy>h2 { font-size: 32px; }
+  .is-enhanced .tour-stage { min-height: 0; }
+  .is-enhanced .tour-stage figure { max-width: 215px; }
+  .feature-list article+article { border-left: 0; padding-left: 36px; }
+  .feature-list article+article .number { left: 0; }
+  .purpose { grid-template-columns: 1fr; gap: 28px; }
+  .purpose>div:first-child { position: static; }
+  .purpose h2 { font-size: 34px; }
+  .memory-stamp { max-width: 390px; margin: 26px auto 0; }
+  .stamp-paper { padding: 25px 22px; }
+  .stamp-artwork { width: min(58%,180px); }
+  .stamp-signature { font-size: 19px; }
+  .culture-grid { margin-top: 35px; }
+  .culture-grid article,.culture-grid article+article { border-left: 0; padding: 27px 0; }
+  .culture-grid article:last-child { padding-bottom: 0; }
+  .culture-grid h3 { font-size: 23px; }
+  .scan-steps li::before { display: none; }
+  .scan-step-number { min-width: 40px; height: 40px; margin-bottom: 10px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .journey-scene>img { transform: none; }
+}

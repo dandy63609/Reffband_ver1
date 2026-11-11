@@ -1,0 +1,24 @@
+/* Scan walkthrough: two paper prints, clear steps, and a separate supporting note. */
+.scan-screens .scan-demo-step{display:inline-grid;place-items:center;width:28px;height:28px;border:1px solid #b55340;color:#a34735;font:12px var(--mono,monospace);transform:rotate(-4deg);flex:none}
+.scan-screens .scan-demo-label{display:block;color:var(--ink,#292923);font-weight:500}
+.scan-screens .scan-demo-label small{display:block;margin-top:4px;color:var(--muted);font-size:11px;font-weight:400}
+.scan-screens .scan-demo-zoom{display:grid;place-items:center;padding:0;border:0;background:transparent;cursor:zoom-in;min-width:0;width:100%}
+.scan-screens .scan-demo-zoom:focus-visible{outline:2px solid #a34735;outline-offset:5px}
+.reader-scan-combined .scan-details{flex:none;width:100%;margin:0;border-block:1px solid var(--line)}
+.reader-scan-combined .scan-details>summary{color:var(--ink,#292923)}
+.reader-scan-combined .scan-screens{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,54px);max-width:650px;padding:10px 0 24px;margin:0 auto}
+.reader-scan-combined .scan-screens::after{content:'→';position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);font:24px var(--serif);color:#a34735}
+.reader-scan-combined .scan-screens figure{display:flex;flex-direction:column;align-items:center;gap:16px;min-width:0;margin:0;padding:0 5px;border:0;background:transparent;overflow:visible}
+.reader-scan-combined .scan-screens figcaption{display:flex;align-items:center;justify-content:center;gap:12px;min-height:46px;margin:0;font-size:14px;line-height:1.35;text-align:left}
+.reader-scan-combined .scan-screens img{display:block;width:auto;height:auto;min-height:0;max-height:350px;max-width:100%;margin:0;object-fit:contain;border:1px solid #d9d2c3;box-shadow:0 5px 14px #40342112}
+.reader-scan-combined .scan-note{position:static;flex:none;max-width:650px;width:100%;margin:0 auto;padding:8px 0 0;font-size:12px!important;line-height:1.5;text-align:center}
+@media(max-width:680px){
+ .reader-scan-combined .scan-screens{gap:24px;padding:8px 0 20px}
+ .reader-scan-combined .scan-screens figure{gap:12px;padding:0}
+ .reader-scan-combined .scan-screens figcaption{width:100%;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:8px;font-size:12px;min-height:66px}
+ .reader-scan-combined .scan-demo-step{width:23px;height:23px;font-size:10px}
+ .reader-scan-combined .scan-demo-label small{display:none}
+ .reader-scan-combined .scan-screens::after{font-size:19px;top:60%}
+ .reader-scan-combined .scan-screens img{max-height:300px}
+ .reader-scan-combined .scan-note{font-size:11px!important;line-height:1.45;text-align:left}
+}

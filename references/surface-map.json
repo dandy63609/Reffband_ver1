@@ -1,0 +1,82 @@
+{
+  "url": "https://aestudio.studio/goshuin/en",
+  "title": "GoShuin: Goshuin Map & Journal for iPhone | AE Studio",
+  "viewport": {
+    "w": 1440,
+    "h": 900,
+    "dpr": 1
+  },
+  "globals": {
+    "three": false,
+    "babylon": false,
+    "regl": false,
+    "pixi": false,
+    "ogl": false,
+    "p5": false,
+    "gsap": false,
+    "unicornStudio": false,
+    "spline": false,
+    "rive": false,
+    "shadertoy": false
+  },
+  "scroll": {
+    "lenis": false,
+    "locomotive": false,
+    "scrollTimelineCSS": false,
+    "scrollSnap": true
+  },
+  "counts": {
+    "canvas": 0,
+    "gpuCanvas": 0,
+    "video": 2,
+    "iframe": 0,
+    "opaqueIframe": 0
+  },
+  "surfaces": [
+    {
+      "id": "video-0",
+      "surface": "VIDEO",
+      "route": "dom-clone",
+      "selector": "section.hero.illustrated-hero > div.book-cover:nth-of-type(2) > div.book-cover-front:nth-of-type(1) > div.cover-pattern:nth-of-type(1) > video.cover-pattern-video:nth-of-type(1)",
+      "rect": {
+        "x": 720,
+        "y": 107,
+        "w": 688,
+        "h": 134
+      },
+      "coveragePct": 7,
+      "src": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+      "autoplay": false,
+      "loop": true,
+      "muted": true,
+      "poster": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-poster-20261006.jpg"
+    },
+    {
+      "id": "video-1",
+      "surface": "VIDEO",
+      "route": "dom-clone",
+      "selector": "section.hero.illustrated-hero > div.book-cover:nth-of-type(2) > div.book-cover-front:nth-of-type(1) > div.cover-pattern:nth-of-type(1) > video.cover-pattern-video.cover-pattern-video-bottom:nth-of-type(2)",
+      "rect": {
+        "x": 720,
+        "y": 677,
+        "w": 688,
+        "h": 134
+      },
+      "coveragePct": 7,
+      "src": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+      "autoplay": false,
+      "loop": true,
+      "muted": true,
+      "poster": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-poster-20261006.jpg"
+    }
+  ],
+  "routingSummary": {
+    "hasGpuSurfaces": false,
+    "gpuHeroPresent": false,
+    "sendToShaderExtract": [],
+    "opaqueIframes": [],
+    "platformGlobalsDetected": [],
+    "lazyGpuLikely": false,
+    "note": "No GPU surfaces detected — dom-clone alone is sufficient; still verify animated video/SVG are re-embedded, not snapshotted."
+  }
+}

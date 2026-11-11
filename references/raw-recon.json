@@ -1,0 +1,1747 @@
+{
+  "sm": {
+    "url": "https://aestudio.studio/goshuin/en",
+    "title": "GoShuin: Goshuin Map & Journal for iPhone | AE Studio",
+    "viewport": {
+      "w": 1440,
+      "h": 900,
+      "dpr": 1
+    },
+    "globals": {
+      "three": false,
+      "babylon": false,
+      "regl": false,
+      "pixi": false,
+      "ogl": false,
+      "p5": false,
+      "gsap": false,
+      "unicornStudio": false,
+      "spline": false,
+      "rive": false,
+      "shadertoy": false
+    },
+    "scroll": {
+      "lenis": false,
+      "locomotive": false,
+      "scrollTimelineCSS": false,
+      "scrollSnap": true
+    },
+    "counts": {
+      "canvas": 0,
+      "gpuCanvas": 0,
+      "video": 2,
+      "iframe": 0,
+      "opaqueIframe": 0
+    },
+    "surfaces": [
+      {
+        "id": "video-0",
+        "surface": "VIDEO",
+        "route": "dom-clone",
+        "selector": "section.hero.illustrated-hero > div.book-cover:nth-of-type(2) > div.book-cover-front:nth-of-type(1) > div.cover-pattern:nth-of-type(1) > video.cover-pattern-video:nth-of-type(1)",
+        "rect": {
+          "x": 720,
+          "y": 107,
+          "w": 688,
+          "h": 134
+        },
+        "coveragePct": 7,
+        "src": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+        "autoplay": false,
+        "loop": true,
+        "muted": true,
+        "poster": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-poster-20261006.jpg"
+      },
+      {
+        "id": "video-1",
+        "surface": "VIDEO",
+        "route": "dom-clone",
+        "selector": "section.hero.illustrated-hero > div.book-cover:nth-of-type(2) > div.book-cover-front:nth-of-type(1) > div.cover-pattern:nth-of-type(1) > video.cover-pattern-video.cover-pattern-video-bottom:nth-of-type(2)",
+        "rect": {
+          "x": 720,
+          "y": 677,
+          "w": 688,
+          "h": 134
+        },
+        "coveragePct": 7,
+        "src": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+        "autoplay": false,
+        "loop": true,
+        "muted": true,
+        "poster": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-poster-20261006.jpg"
+      }
+    ],
+    "routingSummary": {
+      "hasGpuSurfaces": false,
+      "gpuHeroPresent": false,
+      "sendToShaderExtract": [],
+      "opaqueIframes": [],
+      "platformGlobalsDetected": [],
+      "lazyGpuLikely": false,
+      "note": "No GPU surfaces detected — dom-clone alone is sufficient; still verify animated video/SVG are re-embedded, not snapshotted."
+    }
+  },
+  "mo": {
+    "url": "https://aestudio.studio/goshuin/en",
+    "viewport": {
+      "w": 1440,
+      "h": 900,
+      "dpr": 1
+    },
+    "instrumented": true,
+    "libraries": {},
+    "gsap": null,
+    "scrollTrigger": [],
+    "waapi": [],
+    "keyframes": [
+      {
+        "name": "folio-ink",
+        "css": "@keyframes folio-ink { \n  0% { clip-path: inset(0px 100% 0px 0px); }\n  100% { clip-path: inset(0px); }\n}"
+      },
+      {
+        "name": "folio-stamp",
+        "css": "@keyframes folio-stamp { \n  0% { opacity: 0.2; scale: 1.5; }\n  100% { opacity: 1; scale: 1; }\n}"
+      },
+      {
+        "name": "cover-ink-tide",
+        "css": "@keyframes cover-ink-tide { \n  0%, 100% { filter: brightness(1) saturate(0.95); }\n  50% { filter: brightness(1.08) saturate(1.08); }\n}"
+      }
+    ],
+    "scrollTimelines": [],
+    "transitions": [
+      {
+        "property": "color, background",
+        "duration": "0.2s, 0.2s",
+        "easing": "ease, ease",
+        "delay": "0s, 0s",
+        "example": "button",
+        "count": 6
+      },
+      {
+        "property": "background, color",
+        "duration": "0.25s, 0.25s",
+        "easing": "ease, ease",
+        "delay": "0s, 0s",
+        "example": "button",
+        "count": 4
+      },
+      {
+        "property": "transform",
+        "duration": "0.25s",
+        "easing": "ease",
+        "delay": "0s",
+        "example": "span.tour-arrow",
+        "count": 4
+      },
+      {
+        "property": "background-color, border-color, color",
+        "duration": "0.16s, 0.16s, 0.16s",
+        "easing": "ease, ease, ease",
+        "delay": "0s, 0s, 0s",
+        "example": "span.zoom-hint",
+        "count": 4
+      },
+      {
+        "property": "color, border-color",
+        "duration": "0.18s, 0.18s",
+        "easing": "ease, ease",
+        "delay": "0s, 0s",
+        "example": "a.hero-action.hero-action-primary",
+        "count": 2
+      },
+      {
+        "property": "background, color",
+        "duration": "0.18s, 0.18s",
+        "easing": "ease, ease",
+        "delay": "0s, 0s",
+        "example": "button",
+        "count": 2
+      },
+      {
+        "property": "background, transform",
+        "duration": "0.22s, 0.22s",
+        "easing": "ease, ease",
+        "delay": "0s, 0s",
+        "example": "a.button",
+        "count": 2
+      },
+      {
+        "property": "transform",
+        "duration": "0.2s",
+        "easing": "ease",
+        "delay": "0s",
+        "example": "span",
+        "count": 2
+      },
+      {
+        "property": "background-color, color, border-color, box-shadow",
+        "duration": "0.18s, 0.18s, 0.18s, 0.18s",
+        "easing": "ease, ease, ease, ease",
+        "delay": "0s, 0s, 0s, 0s",
+        "example": "button.book-motion-control",
+        "count": 1
+      }
+    ],
+    "lenis": null,
+    "sliders": [],
+    "splitText": [],
+    "intersectionObservers": [
+      {
+        "options": {
+          "threshold": 0.15
+        },
+        "targets": [
+          ".chart-card"
+        ]
+      },
+      {
+        "options": {
+          "threshold": 0.12
+        },
+        "targets": [
+          ".app-tour.book-spread.is-enhanced",
+          ".art-note",
+          ".culture-heading",
+          ".history-story"
+        ]
+      },
+      {
+        "options": {
+          "threshold": 0.35
+        },
+        "targets": [
+          ".memory-stamp"
+        ]
+      },
+      {
+        "options": {
+          "threshold": 0.18
+        },
+        "targets": [
+          ".culture-grid",
+          ".scan-steps"
+        ]
+      },
+      {
+        "options": {},
+        "targets": [
+          ".book-cover"
+        ]
+      },
+      {
+        "options": {
+          "threshold": 0.3
+        },
+        "targets": [
+          ".book-chapter-band.band-indigo-waves",
+          ".book-chapter-band.band-vermilion-clouds",
+          ".book-chapter-band.band-pine-fan",
+          ".book-chapter-band.band-golden-tide",
+          ".book-chapter-band.band-jade-ribbons",
+          ".book-chapter-band.band-sakura-silk"
+        ]
+      },
+      {
+        "options": {
+          "threshold": 0.12
+        },
+        "targets": [
+          ".tour-copy",
+          ".purpose-copy",
+          ".history-story",
+          ".chart-card",
+          ".faq"
+        ]
+      }
+    ],
+    "listeners": [
+      {
+        "on": "window",
+        "type": "scroll",
+        "passive": true
+      },
+      {
+        "on": "window",
+        "type": "resize",
+        "passive": false
+      },
+      {
+        "on": "window",
+        "type": "resize",
+        "passive": true
+      },
+      {
+        "on": "document",
+        "type": "keydown",
+        "passive": false
+      },
+      {
+        "on": "window",
+        "type": "resize",
+        "passive": false
+      }
+    ],
+    "rafCalls": 0,
+    "customProps": {
+      "--paper": "#fdfcf9",
+      "--ink": "#292824",
+      "--muted": "#68665f",
+      "--line": "#e5e1d8",
+      "--sage": "#b7c6b3",
+      "--teal": "#943e37",
+      "--coral": "#943e37",
+      "--serif": "Georgia,'Hiragino Mincho ProN','Yu Mincho',serif",
+      "--sans": "-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif",
+      "--vermilion": "#a6362f",
+      "--warm-paper": "#f8f6ef",
+      "--journey-ease": "cubic-bezier(.22,.68,.2,1)",
+      "--forest": "#2f493e"
+    },
+    "notes": [],
+    "summary": {
+      "animationStack": [],
+      "inputDrivers": [
+        "scroll",
+        "resize",
+        "keydown"
+      ],
+      "ioCount": 7,
+      "platform": []
+    }
+  },
+  "tk": {
+    "url": "https://aestudio.studio/goshuin/en",
+    "viewport": {
+      "w": 1440,
+      "h": 900,
+      "dpr": 1
+    },
+    "colors": [
+      {
+        "value": "rgb(45, 52, 53)",
+        "count": 7,
+        "where": [
+          "text a.brand",
+          "text span",
+          "text p.kicker"
+        ]
+      },
+      {
+        "value": "rgb(75, 93, 96)",
+        "count": 6,
+        "where": [
+          "text a",
+          "text button",
+          "text span"
+        ]
+      },
+      {
+        "value": "rgb(75, 85, 69)",
+        "count": 5,
+        "where": [
+          "text a"
+        ]
+      },
+      {
+        "value": "rgb(249, 247, 242)",
+        "count": 3,
+        "where": [
+          "bg main.goshuin-book",
+          "bg #hero-en",
+          "bg section.hero.illustrated-hero"
+        ]
+      },
+      {
+        "value": "rgb(214, 209, 197)",
+        "count": 3,
+        "where": [
+          "border p.kicker",
+          "border p.hero-edition",
+          "border nav.reader-controls"
+        ]
+      },
+      {
+        "value": "rgb(61, 71, 61)",
+        "count": 3,
+        "where": [
+          "text figcaption",
+          "text span"
+        ]
+      },
+      {
+        "value": "rgb(215, 216, 205)",
+        "count": 3,
+        "where": [
+          "text span",
+          "text span.cover-open-cue"
+        ]
+      },
+      {
+        "value": "rgb(41, 40, 36)",
+        "count": 2,
+        "where": [
+          "text a.skip",
+          "text span.sr-only"
+        ]
+      },
+      {
+        "value": "rgb(114, 116, 107)",
+        "count": 2,
+        "where": [
+          "text span",
+          "text label"
+        ]
+      },
+      {
+        "value": "rgb(108, 102, 90)",
+        "count": 2,
+        "where": [
+          "text button.scene-replay.book-replay",
+          "text span"
+        ]
+      }
+    ],
+    "fonts": [
+      {
+        "value": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif / 400",
+        "count": 26,
+        "where": [
+          "a.skip",
+          "a",
+          "span"
+        ]
+      },
+      {
+        "value": "Georgia, \"Hiragino Mincho ProN\", \"Yu Mincho\", serif / 400",
+        "count": 9,
+        "where": [
+          "a.brand",
+          "span",
+          "#reader-hero-title-en"
+        ]
+      }
+    ],
+    "fontFaces": [],
+    "typeScale": [
+      {
+        "value": "13px / normal / 400",
+        "count": 6,
+        "where": [
+          "a",
+          "label"
+        ]
+      },
+      {
+        "value": "16px / 29.6px / 400",
+        "count": 3,
+        "where": [
+          "a.skip",
+          "figcaption",
+          "span.sr-only"
+        ]
+      },
+      {
+        "value": "12px / normal / 400",
+        "count": 3,
+        "where": [
+          "span",
+          "button"
+        ]
+      },
+      {
+        "value": "11px / 20.35px / 400",
+        "count": 3,
+        "where": [
+          "a",
+          "span"
+        ]
+      },
+      {
+        "value": "25px / normal / 400",
+        "count": 2,
+        "where": [
+          "a.brand",
+          "span"
+        ]
+      },
+      {
+        "value": "12px / 16.8px / 400",
+        "count": 2,
+        "where": [
+          "a.hero-action.hero-action-primary",
+          "a.hero-action.hero-action-secondary"
+        ]
+      },
+      {
+        "value": "9px / 13.5px / 400",
+        "count": 2,
+        "where": [
+          "p.hero-edition",
+          "small"
+        ]
+      },
+      {
+        "value": "23px / normal / 400",
+        "count": 2,
+        "where": [
+          "span"
+        ]
+      }
+    ],
+    "lineHeights": [
+      {
+        "value": "29.6px",
+        "count": 3,
+        "where": [
+          "a.skip",
+          "figcaption",
+          "span.sr-only"
+        ]
+      },
+      {
+        "value": "20.35px",
+        "count": 3,
+        "where": [
+          "a",
+          "span"
+        ]
+      },
+      {
+        "value": "16.8px",
+        "count": 2,
+        "where": [
+          "a.hero-action.hero-action-primary",
+          "a.hero-action.hero-action-secondary"
+        ]
+      },
+      {
+        "value": "13.5px",
+        "count": 2,
+        "where": [
+          "p.hero-edition",
+          "small"
+        ]
+      }
+    ],
+    "letterSpacing": [
+      {
+        "value": "-0.625px",
+        "count": 2,
+        "where": [
+          "a.brand",
+          "span"
+        ]
+      },
+      {
+        "value": "0.3px",
+        "count": 2,
+        "where": [
+          "a.hero-action.hero-action-primary",
+          "a.hero-action.hero-action-secondary"
+        ]
+      },
+      {
+        "value": "0.88px",
+        "count": 2,
+        "where": [
+          "span.cover-open-cue",
+          "span"
+        ]
+      },
+      {
+        "value": "0.7px",
+        "count": 2,
+        "where": [
+          "button.scene-replay.book-replay",
+          "span"
+        ]
+      }
+    ],
+    "spacing": [
+      {
+        "value": "14px",
+        "count": 17,
+        "where": [
+          "rowGap summary",
+          "columnGap summary",
+          "padding a"
+        ]
+      },
+      {
+        "value": "10px",
+        "count": 13,
+        "where": [
+          "padding a.skip",
+          "padding a",
+          "padding p.kicker"
+        ]
+      },
+      {
+        "value": "8px",
+        "count": 12,
+        "where": [
+          "padding a.hero-action.hero-action-primary",
+          "padding a.hero-action.hero-action-secondary",
+          "padding figcaption"
+        ]
+      },
+      {
+        "value": "6px",
+        "count": 10,
+        "where": [
+          "padding a"
+        ]
+      },
+      {
+        "value": "12px",
+        "count": 8,
+        "where": [
+          "padding figcaption",
+          "padding span.cover-title",
+          "padding button"
+        ]
+      },
+      {
+        "value": "18px",
+        "count": 5,
+        "where": [
+          "rowGap div.reader-identity",
+          "columnGap div.reader-identity",
+          "padding span"
+        ]
+      },
+      {
+        "value": "4px",
+        "count": 5,
+        "where": [
+          "padding button.scene-replay.book-replay",
+          "padding #reader-page-choice",
+          "padding button.book-motion-control"
+        ]
+      },
+      {
+        "value": "25px",
+        "count": 4,
+        "where": [
+          "rowGap div.reader-topline",
+          "columnGap div.reader-topline",
+          "padding nav.reader-controls"
+        ]
+      },
+      {
+        "value": "9px",
+        "count": 4,
+        "where": [
+          "rowGap a.brand",
+          "columnGap a.brand",
+          "rowGap div.languages"
+        ]
+      },
+      {
+        "value": "20px",
+        "count": 4,
+        "where": [
+          "rowGap figcaption",
+          "columnGap figcaption",
+          "rowGap nav.reader-controls"
+        ]
+      },
+      {
+        "value": "13px",
+        "count": 4,
+        "where": [
+          "rowGap button",
+          "columnGap button"
+        ]
+      },
+      {
+        "value": "7px",
+        "count": 4,
+        "where": [
+          "padding #reader-page-choice",
+          "rowGap button.book-motion-control",
+          "columnGap button.book-motion-control"
+        ]
+      },
+      {
+        "value": "22px",
+        "count": 3,
+        "where": [
+          "padding span.cover-title",
+          "padding #reader-page-choice"
+        ]
+      },
+      {
+        "value": "30px",
+        "count": 2,
+        "where": [
+          "padding div.reader-topline"
+        ]
+      },
+      {
+        "value": "23px",
+        "count": 2,
+        "where": [
+          "padding summary"
+        ]
+      },
+      {
+        "value": "82.5469px",
+        "count": 2,
+        "where": [
+          "padding section.hero.illustrated-hero"
+        ]
+      },
+      {
+        "value": "56px",
+        "count": 2,
+        "where": [
+          "rowGap section.hero.illustrated-hero",
+          "columnGap section.hero.illustrated-hero"
+        ]
+      },
+      {
+        "value": "54px",
+        "count": 2,
+        "where": [
+          "margin p.kicker",
+          "margin p.hero-edition"
+        ]
+      },
+      {
+        "value": "28px",
+        "count": 2,
+        "where": [
+          "rowGap div.actions",
+          "columnGap div.actions"
+        ]
+      }
+    ],
+    "radii": [],
+    "shadows": [
+      {
+        "value": "rgba(24, 35, 33, 0.145) 12px 8px 25px 0px",
+        "count": 2,
+        "where": [
+          "div.book-cover-front",
+          "div.book-cover-back"
+        ]
+      }
+    ],
+    "zIndex": [],
+    "gradients": [],
+    "filters": [],
+    "blendModes": [],
+    "maxWidths": [],
+    "breakpoints": [
+      "360px",
+      "380px",
+      "600px",
+      "680px",
+      "700px",
+      "701px",
+      "720px",
+      "740px",
+      "1000px",
+      "1050px",
+      "1100px",
+      "1500px",
+      "1600px",
+      "1800px"
+    ],
+    "customProps": {
+      "--paper": "#fdfcf9",
+      "--ink": "#292824",
+      "--muted": "#68665f",
+      "--line": "#e5e1d8",
+      "--sage": "#b7c6b3",
+      "--teal": "#943e37",
+      "--coral": "#943e37",
+      "--serif": "Georgia,'Hiragino Mincho ProN','Yu Mincho',serif",
+      "--sans": "-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif",
+      "--vermilion": "#a6362f",
+      "--warm-paper": "#f8f6ef",
+      "--journey-ease": "cubic-bezier(.22,.68,.2,1)",
+      "--forest": "#2f493e"
+    },
+    "body": {
+      "fontFamily": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif",
+      "fontSize": "16px",
+      "lineHeight": "29.6px",
+      "color": "rgb(41, 40, 36)",
+      "background": "rgb(231, 229, 223)",
+      "letterSpacing": "normal"
+    },
+    "headings": {
+      "h1": {
+        "fontFamily": "Georgia, \"Hiragino Mincho ProN\", \"Yu Mincho\", serif",
+        "fontSize": "129.364px",
+        "fontWeight": "400",
+        "lineHeight": "126.776px",
+        "letterSpacing": "-9.05546px",
+        "textTransform": "none",
+        "color": "rgb(45, 52, 53)",
+        "marginBottom": "0px"
+      },
+      "h2": {
+        "fontFamily": "Georgia, \"Hiragino Mincho ProN\", \"Yu Mincho\", serif",
+        "fontSize": "36px",
+        "fontWeight": "400",
+        "lineHeight": "43.2px",
+        "letterSpacing": "-0.72px",
+        "textTransform": "none",
+        "color": "rgb(41, 40, 36)",
+        "marginBottom": "0px"
+      },
+      "h3": {
+        "fontFamily": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif",
+        "fontSize": "23px",
+        "fontWeight": "500",
+        "lineHeight": "36.8px",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "color": "rgb(41, 40, 36)",
+        "marginBottom": "0px"
+      },
+      "p": {
+        "fontFamily": "-apple-system, BlinkMacSystemFont, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif",
+        "fontSize": "9px",
+        "fontWeight": "500",
+        "lineHeight": "12.6px",
+        "letterSpacing": "1.44px",
+        "textTransform": "none",
+        "color": "rgb(45, 52, 53)",
+        "marginBottom": "54px"
+      }
+    },
+    "buttons": [
+      {
+        "example": "div.book-cover",
+        "text": "御朱印帳GoShuinA JOURNAL OF JAPAN↗",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(45, 52, 53)",
+        "border": "0px none rgb(45, 52, 53)",
+        "radius": "0px",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "shadow": "none",
+        "transition": "all 0s ease"
+      },
+      {
+        "example": "button.scene-replay.book-replay",
+        "text": "↻ Replay the Ink",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(108, 102, 90)",
+        "border": "0px none rgb(108, 102, 90)",
+        "radius": "0px",
+        "padding": "4px 0px",
+        "fontSize": "10px",
+        "fontWeight": "400",
+        "letterSpacing": "0.7px",
+        "textTransform": "none",
+        "shadow": "none",
+        "transition": "all 0s ease"
+      },
+      {
+        "example": "button",
+        "text": "01Keep the pageKeep your goshu",
+        "background": "rgb(236, 230, 215)",
+        "color": "rgb(166, 54, 47)",
+        "border": "0px none rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "padding": "11px 10px",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "shadow": "none",
+        "transition": "background, color 0.25s, 0.25s ease, ease"
+      },
+      {
+        "example": "button",
+        "text": "02Find your next visitFind tem",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(41, 40, 36)",
+        "border": "0px none rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "padding": "11px 10px",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "shadow": "none",
+        "transition": "background, color 0.25s, 0.25s ease, ease"
+      },
+      {
+        "example": "button.screen-zoom",
+        "text": "View screenshot",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(41, 40, 36)",
+        "border": "0px none rgb(41, 40, 36)",
+        "radius": "8px",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "shadow": "none",
+        "transition": "all 0s ease"
+      },
+      {
+        "example": "button.scan-demo-zoom",
+        "text": "",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)",
+        "border": "0px none rgb(0, 0, 0)",
+        "radius": "0px",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "shadow": "none",
+        "transition": "all 0s ease"
+      },
+      {
+        "example": "button",
+        "text": "Replay the stamp ↻",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(148, 62, 55)",
+        "border": "0px none rgb(148, 62, 55)",
+        "radius": "0px",
+        "padding": "10px 0px 10px 12px",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "shadow": "none",
+        "transition": "all 0s ease"
+      },
+      {
+        "example": "button",
+        "text": "Cumulative",
+        "background": "rgb(49, 78, 67)",
+        "color": "rgb(255, 248, 231)",
+        "border": "0px none rgb(255, 248, 231)",
+        "radius": "0px",
+        "padding": "12px 15px",
+        "fontSize": "11px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "textTransform": "none",
+        "shadow": "rgb(210, 186, 134) 0px -3px 0px 0px inset",
+        "transition": "background, color 0.18s, 0.18s ease, ease"
+      }
+    ],
+    "links": {
+      "color": "rgb(75, 85, 69)",
+      "decoration": "none",
+      "weight": "400"
+    },
+    "notes": [],
+    "loadedFonts": [],
+    "fontLinks": [],
+    "page": {
+      "scrollHeight": 900,
+      "sections": [
+        {
+          "selector": "div.reader-stage",
+          "top": 107,
+          "height": 704,
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": "#hero-en",
+          "top": 107,
+          "height": 704,
+          "background": "rgb(249, 247, 242)"
+        },
+        {
+          "selector": "section.hero.illustrated-hero",
+          "top": 107,
+          "height": 704,
+          "background": "rgb(249, 247, 242)"
+        }
+      ],
+      "fixed": [
+        {
+          "selector": "a.skip",
+          "position": "fixed",
+          "rect": [
+            20,
+            -100,
+            132,
+            50
+          ],
+          "z": "10"
+        },
+        {
+          "selector": "form",
+          "position": "sticky",
+          "rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "z": "1"
+        },
+        {
+          "selector": "button.book-motion-control",
+          "position": "fixed",
+          "rect": [
+            1327,
+            875,
+            98,
+            24
+          ],
+          "z": "30"
+        }
+      ]
+    }
+  },
+  "tech": {
+    "title": "GoShuin: Goshuin Map & Journal for iPhone | AE Studio",
+    "generator": null,
+    "description": "GoShuin by AE Studio is an iPhone app for Japan’s temples and shrines. Explore places, scan goshuin stamps, and keep your visits in a personal travel journal.",
+    "isNext": false,
+    "isNuxt": false,
+    "isReact": false,
+    "isVue": false,
+    "isAstro": false,
+    "isFramer": false,
+    "isWebflow": false,
+    "hasLenis": false,
+    "hasGSAP": false,
+    "hasThree": false,
+    "hasPixi": false,
+    "bodyClasses": [
+      "goshuin-book-site",
+      "is-book-reader"
+    ],
+    "scripts": [
+      "https://aestudio.studio/goshuin/assets/site-371f3181278d.js",
+      "inline",
+      "https://aestudio.studio/goshuin/assets/journey-cdcd0a0ccc2e.js",
+      "https://aestudio.studio/goshuin/assets/illustrated-journey-b2703805cdac.js",
+      "https://aestudio.studio/goshuin/assets/book-journey-c49d5428997f.js",
+      "https://aestudio.studio/goshuin/assets/book-reader-d796e39c0771.js",
+      "inline",
+      "inline",
+      "inline"
+    ],
+    "styleSheets": [
+      "https://aestudio.studio/goshuin/assets/site-f6816fdbdae5.css",
+      "https://aestudio.studio/goshuin/assets/scan-linkage-20261004.css",
+      "https://aestudio.studio/goshuin/assets/journey-530a290ca5f1.css",
+      "https://aestudio.studio/goshuin/assets/culture-purpose-8237fc324b32.css",
+      "https://aestudio.studio/goshuin/assets/guide-link-20261006.css",
+      "https://aestudio.studio/goshuin/assets/illustrated-journey-d98e2c4a8d99.css",
+      "https://aestudio.studio/goshuin/assets/chart-folio-e7de8b376bd0.css",
+      "https://aestudio.studio/goshuin/assets/book-journey-c9609446cad1.css",
+      "https://aestudio.studio/goshuin/assets/book-reader-066f1703ed2f.css?v=booklet-14",
+      "https://aestudio.studio/goshuin/assets/scan-demo-c8e4e97ceb89.css",
+      "https://aestudio.studio/goshuin/assets/cover-entry-275cc6dca278.css",
+      "https://aestudio.studio/goshuin/assets/hero-details-3c82072c0459.css",
+      "https://aestudio.studio/goshuin/assets/screenshot-actions-ccc1dd190647.css",
+      "https://aestudio.studio/goshuin/assets/goshuin-create-955f63e891f1.css"
+    ],
+    "videos": [
+      {
+        "src": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+        "autoplay": false,
+        "loop": true,
+        "muted": true,
+        "className": "cover-pattern-video"
+      },
+      {
+        "src": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+        "autoplay": false,
+        "loop": true,
+        "muted": true,
+        "className": "cover-pattern-video cover-pattern-video-bottom"
+      }
+    ],
+    "canvases": [],
+    "fonts": [],
+    "sections": [
+      {
+        "tag": "main",
+        "id": "",
+        "className": "goshuin-book",
+        "rect": {
+          "x": 32,
+          "y": 24,
+          "width": 1376,
+          "height": 849,
+          "top": 24,
+          "right": 1408,
+          "bottom": 873,
+          "left": 32
+        },
+        "innerTextSnippet": "GoShuin 御朱印帳 Contents 日本語 / EN  AE STUDIO / GOSHUIN JOURNAL  GoShuin  Every stamp, a memory.  App St"
+      },
+      {
+        "tag": "section",
+        "id": "hero-en",
+        "className": "reader-leaf reader-arrival",
+        "rect": {
+          "x": 32,
+          "y": 107,
+          "width": 1376,
+          "height": 704,
+          "top": 107,
+          "right": 1408,
+          "bottom": 811,
+          "left": 32
+        },
+        "innerTextSnippet": "AE STUDIO / GOSHUIN JOURNAL  GoShuin  Every stamp, a memory.  App Store Explore the app  GOSHUIN MAP"
+      },
+      {
+        "tag": "section",
+        "id": "",
+        "className": "hero illustrated-hero book-hero cover-waiting",
+        "rect": {
+          "x": 32,
+          "y": 107,
+          "width": 1376,
+          "height": 704,
+          "top": 107,
+          "right": 1408,
+          "bottom": 811,
+          "left": 32
+        },
+        "innerTextSnippet": "AE STUDIO / GOSHUIN JOURNAL  GoShuin  Every stamp, a memory.  App Store Explore the app  GOSHUIN MAP"
+      },
+      {
+        "tag": "div",
+        "id": "",
+        "className": "hero-copy",
+        "rect": {
+          "x": 114.546875,
+          "y": 233.9375,
+          "width": 557.015625,
+          "height": 423.125,
+          "top": 233.9375,
+          "right": 671.5625,
+          "bottom": 657.0625,
+          "left": 114.546875
+        },
+        "innerTextSnippet": "AE STUDIO / GOSHUIN JOURNAL  GoShuin  Every stamp, a memory.  App Store Explore the app  GOSHUIN MAP"
+      },
+      {
+        "tag": "p",
+        "id": "",
+        "className": "hero-tagline",
+        "rect": {
+          "x": 114.546875,
+          "y": 456.296875,
+          "width": 539.015625,
+          "height": 33.265625,
+          "top": 456.296875,
+          "right": 653.5625,
+          "bottom": 489.5625,
+          "left": 114.546875
+        },
+        "innerTextSnippet": "Every stamp, a memory."
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "className": "hero-action hero-action-primary",
+        "rect": {
+          "x": 114.546875,
+          "y": 533.5625,
+          "width": 86.390625,
+          "height": 44,
+          "top": 533.5625,
+          "right": 200.9375,
+          "bottom": 577.5625,
+          "left": 114.546875
+        },
+        "innerTextSnippet": "App Store"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "className": {},
+        "rect": {
+          "x": 185.9375,
+          "y": 547.5625,
+          "width": 15,
+          "height": 15,
+          "top": 547.5625,
+          "right": 200.9375,
+          "bottom": 562.5625,
+          "left": 185.9375
+        },
+        "innerTextSnippet": ""
+      },
+      {
+        "tag": "a",
+        "id": "",
+        "className": "hero-action hero-action-secondary",
+        "rect": {
+          "x": 228.9375,
+          "y": 533.5625,
+          "width": 120.046875,
+          "height": 44,
+          "top": 533.5625,
+          "right": 348.984375,
+          "bottom": 577.5625,
+          "left": 228.9375
+        },
+        "innerTextSnippet": "Explore the app"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "className": {},
+        "rect": {
+          "x": 333.984375,
+          "y": 547.5625,
+          "width": 15,
+          "height": 15,
+          "top": 547.5625,
+          "right": 348.984375,
+          "bottom": 562.5625,
+          "left": 333.984375
+        },
+        "innerTextSnippet": ""
+      },
+      {
+        "tag": "p",
+        "id": "",
+        "className": "hero-edition",
+        "rect": {
+          "x": 114.546875,
+          "y": 631.5625,
+          "width": 539.015625,
+          "height": 25.5,
+          "top": 631.5625,
+          "right": 653.5625,
+          "bottom": 657.0625,
+          "left": 114.546875
+        },
+        "innerTextSnippet": "GOSHUIN MAP & JOURNAL FOR IPHONE"
+      },
+      {
+        "tag": "section",
+        "id": "discover-en",
+        "className": "reader-leaf reader-tour",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "INSIDE GOSHUINExplore GoShuin01Keep the pageKeep your goshuin photos together.↗02Find your next visi"
+      },
+      {
+        "tag": "section",
+        "id": "book-page-3-en",
+        "className": "reader-leaf reader-features",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Your Travel Journal01Discover a Place to VisitSearch across all 47 prefectures. Save favourites and "
+      },
+      {
+        "tag": "section",
+        "id": "scan-en",
+        "className": "reader-leaf reader-scan reader-scan-combined",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "SCAN · CONFIRM · SAVEScan & SaveRecognition finds a possible match. You decide where your goshuin be"
+      },
+      {
+        "tag": "section",
+        "id": "purpose-en",
+        "className": "reader-leaf reader-memory",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Why we built GoShuinWhy GoShuinGoShuinYour journey, keptINK → SEAL → MEMORYReplay the stamp ↻GoShuin"
+      },
+      {
+        "tag": "section",
+        "id": "create-en",
+        "className": "reader-leaf reader-generation",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "CREATE & SHARECreate Your Own GoshuinMake a goshuin design of your own with GoShuin’s generation fea"
+      },
+      {
+        "tag": "section",
+        "id": "book-page-7-en",
+        "className": "reader-leaf reader-principles reader-care",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Visiting with Care01Before You VisitRead a place’s history, follow its sources and check the venue’s"
+      },
+      {
+        "tag": "section",
+        "id": "culture-en",
+        "className": "reader-leaf reader-culture reader-culture-guide",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "HISTORY · CULTURE · CONNECTIONTemples, Shrines& GoshuinLearn a little about the place before you vis"
+      },
+      {
+        "tag": "section",
+        "id": "book-page-9-en",
+        "className": "reader-leaf reader-culture reader-history",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "明治神宮1920MEIJI JINGU · TOKYOA CLOSER LOOK · MEIJI JINGUMeiji JinguFounded in 1920, Meiji Jingu honour"
+      },
+      {
+        "tag": "section",
+        "id": "trends-en",
+        "className": "reader-leaf reader-data",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "JAPAN, IN CONTEXTJapan’s Temples& ShrinesExplore national temple and shrine counts, with original so"
+      },
+      {
+        "tag": "section",
+        "id": "chart-en",
+        "className": "reader-leaf reader-chart",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "JAPAN’S TEMPLES & SHRINESA RECORD OF CHANGEWhat Changed Since 2019?Change in national temple and shr"
+      },
+      {
+        "tag": "header",
+        "id": "",
+        "className": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Temples"
+      },
+      {
+        "tag": "header",
+        "id": "",
+        "className": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Shrines"
+      },
+      {
+        "tag": "section",
+        "id": "book-page-12-en",
+        "className": "reader-leaf reader-sources reader-data-notes",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Sources & NotesA decrease in organisation counts is not a count of buildings closed or demolished. T"
+      },
+      {
+        "tag": "section",
+        "id": "support-en",
+        "className": "reader-leaf reader-faq reader-help",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Help & SupportCan I create and share my own goshuin design?What is the GoShuin app?Can I use GoShuin"
+      },
+      {
+        "tag": "section",
+        "id": "book-page-14-en",
+        "className": "reader-leaf reader-closing",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Start Your JournalView on the App Store ↗GoShuinYour places. Your pages. Your memories.Your First Go"
+      },
+      {
+        "tag": "section",
+        "id": "",
+        "className": "closing wrap illustrated-closing",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "Start Your JournalView on the App Store ↗"
+      },
+      {
+        "tag": "footer",
+        "id": "",
+        "className": "site-footer wrap",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "innerTextSnippet": "GoShuinYour places. Your pages. Your memories.Your First GoshuinSupportPrivacyApple licenceContact© "
+      }
+    ]
+  },
+  "resources": [
+    {
+      "name": "https://aestudio.studio/goshuin/assets/site-f6816fdbdae5.css",
+      "initiatorType": "link",
+      "transferSize": 15312,
+      "duration": 308.1000000005588
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/site-371f3181278d.js",
+      "initiatorType": "script",
+      "transferSize": 10363,
+      "duration": 330.70000000018626
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/scan-linkage-20261004.css",
+      "initiatorType": "link",
+      "transferSize": 1605,
+      "duration": 260.40000000037253
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/journey-530a290ca5f1.css",
+      "initiatorType": "link",
+      "transferSize": 24849,
+      "duration": 331.70000000018626
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/journey-cdcd0a0ccc2e.js",
+      "initiatorType": "script",
+      "transferSize": 6653,
+      "duration": 340.80000000074506
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/culture-purpose-8237fc324b32.css",
+      "initiatorType": "link",
+      "transferSize": 1230,
+      "duration": 283.90000000037253
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/guide-link-20261006.css",
+      "initiatorType": "link",
+      "transferSize": 497,
+      "duration": 285.90000000037253
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/illustrated-journey-d98e2c4a8d99.css",
+      "initiatorType": "link",
+      "transferSize": 14095,
+      "duration": 327.90000000037253
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/illustrated-journey-b2703805cdac.js",
+      "initiatorType": "script",
+      "transferSize": 6417,
+      "duration": 340.1000000005588
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/chart-folio-e7de8b376bd0.css",
+      "initiatorType": "link",
+      "transferSize": 10607,
+      "duration": 327.20000000018626
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/book-journey-c9609446cad1.css",
+      "initiatorType": "link",
+      "transferSize": 15189,
+      "duration": 336.29999999981374
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/book-journey-c49d5428997f.js",
+      "initiatorType": "script",
+      "transferSize": 8304,
+      "duration": 338.5
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/book-reader-066f1703ed2f.css?v=booklet-14",
+      "initiatorType": "link",
+      "transferSize": 44177,
+      "duration": 735.0999999996275
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/book-reader-d796e39c0771.js",
+      "initiatorType": "script",
+      "transferSize": 18117,
+      "duration": 734.4000000003725
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/scan-demo-c8e4e97ceb89.css",
+      "initiatorType": "link",
+      "transferSize": 2990,
+      "duration": 329.40000000037253
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/cover-entry-275cc6dca278.css",
+      "initiatorType": "link",
+      "transferSize": 3511,
+      "duration": 329.8999999994412
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/hero-details-3c82072c0459.css",
+      "initiatorType": "link",
+      "transferSize": 7346,
+      "duration": 330.30000000074506
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/screenshot-actions-ccc1dd190647.css",
+      "initiatorType": "link",
+      "transferSize": 2093,
+      "duration": 328.5
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/goshuin-create-955f63e891f1.css",
+      "initiatorType": "link",
+      "transferSize": 1880,
+      "duration": 327
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/logo-20261004.png",
+      "initiatorType": "img",
+      "transferSize": 50205,
+      "duration": 727.3000000007451
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/shrine-approach-1448-20261006.webp",
+      "initiatorType": "img",
+      "transferSize": 498688,
+      "duration": 1062.8999999994412
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/statistics-chart.mjs?v=6994e4938f28",
+      "initiatorType": "script",
+      "transferSize": 7865,
+      "duration": 574.4000000003725
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-indigo-waves-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 51056,
+      "duration": 540.7999999998137
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-vermilion-clouds-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 44722,
+      "duration": 506.59999999962747
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-pine-fan-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 47182,
+      "duration": 529.1000000005588
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-golden-tide-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 47178,
+      "duration": 470.3999999994412
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-jade-ribbons-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 47372,
+      "duration": 527
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-sakura-silk-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 32514,
+      "duration": 476
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-minimal-pebbles-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 12576,
+      "duration": 436.09999999962747
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/ja-scan-library-20261006.webp",
+      "initiatorType": "img",
+      "transferSize": 82024,
+      "duration": 602.4000000003725
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/en-discover-20261004.webp",
+      "initiatorType": "img",
+      "transferSize": 28646,
+      "duration": 337
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/en-history-20261004.webp",
+      "initiatorType": "img",
+      "transferSize": 64270,
+      "duration": 602.6000000005588
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/en-linked-scan-20261004.webp",
+      "initiatorType": "img",
+      "transferSize": 73502,
+      "duration": 607.5
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/starter-dazaifu-dotted-20261004.webp",
+      "initiatorType": "img",
+      "transferSize": 187630,
+      "duration": 637.6000000005588
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/statistics.json",
+      "initiatorType": "fetch",
+      "transferSize": 1706,
+      "duration": 332.5
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/band-minimal-drift-20261004.webp",
+      "initiatorType": "css",
+      "transferSize": 8000,
+      "duration": 306.69999999925494
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-poster-20261006.jpg",
+      "initiatorType": "video",
+      "transferSize": 80831,
+      "duration": 675.2999999998137
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+      "initiatorType": "video",
+      "transferSize": 323051,
+      "duration": 1400.5
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/cover-indigo-veo-loop-20261006.mp4",
+      "initiatorType": "video",
+      "transferSize": 300,
+      "duration": 1071.7999999998137
+    },
+    {
+      "name": "https://aestudio.studio/goshuin/assets/icon-20261004.png",
+      "initiatorType": "other",
+      "transferSize": 6346,
+      "duration": 276.90000000037253
+    }
+  ]
+}

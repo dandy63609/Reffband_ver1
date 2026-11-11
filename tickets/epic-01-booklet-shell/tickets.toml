@@ -1,0 +1,45 @@
+# Stories for Epic 01: 100vh Viewport-Locked Booklet Shell & Dual-Mode 3D Fold Engine
+
+[[entry]]
+id = 1
+type = "story"
+title = "100vh Locked Shell Container & Retro Scrollbar Styling"
+description = "Mengunci viewport browser pada 100vh, membuat container .reader-stage dengan perspective 2000px, dan menata scrollbar internal retro pada .reader-leaf."
+verify = "Buka halaman dengan konten panjang; pastikan window browser tidak memiliki scroll vertikal, dan leaf dapat discroll secara internal."
+covers = ["R9.1"]
+after = []
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Desktop 3D Accordion Z-Fold Animation Engine (rotateY)"
+description = "Membangun fungsi createAccordionMesh untuk memotong DOM menjadi 3 panel vertikal, menerapkan rotasi rotateY(±52°), translasi X, lift Z, shading sudut, dan SVG dynamic ground shadow."
+verify = "Klik tombol Next di desktop (>700px); lembaran keluar terlipat secara fisik 3-dimensi seperti akordeon zine dan bergeser ke kiri dengan bayangan realistis."
+covers = ["R9.2"]
+after = [1]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 3
+type = "story"
+title = "Mobile Vertical Calendar Fold & Touch Gesture Pointer Mechanics"
+description = "Mengimplementasikan adaptasi smartphone (<=700px) yang memotong halaman menjadi 3 panel horizontal (H/3), berotasi rotateX(±52°) dari engsel atas, mendeteksi swipe vertikal dy > 65px, dan menyematkan stacked washi shadows."
+verify = "Pada viewport mobile (<=700px), lakukan swipe ke atas atau klik tombol bawah; pastikan lembaran terlipat ke atas seperti kalender gantung dengan rotasi rotateX."
+covers = ["R9.3"]
+after = [2]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 4
+type = "story"
+title = "Persistent Booklet Controls & Keyboard Arrow Navigation"
+description = "Menyediakan bilah kendali lembaran bawah (.reader-controls) dengan label arah dinamis ([←/→] desktop vs [↑/↓] mobile), selektor loncat lembaran, dan event listener tombol panah keyboard."
+verify = "Tekan panah keyboard kanan/kiri (desktop) atau atas/bawah (mobile) dan verifikasi perpindahan lembaran sinkron dengan bilah indikator."
+covers = ["R9.4"]
+after = [3]
+hitl = false
+risk = "low"

@@ -1,0 +1,41 @@
+# Reffband MVP Product Backlog: Master Epics
+# Table order is build order. `id` is permanent, never reused.
+
+[[epic]]
+id = 1
+slug = "epic-01-booklet-shell"
+title = "100vh Viewport-Locked Booklet Shell & Dual-Mode 3D Fold Engine"
+description = "Panggung aplikasi terkunci 100vh tanpa window scroll dengan mesin lipatan 3D fisik dual-mode (Desktop rotateY vs Phone rotateX), touch gesture swipe, dan persistent bottom booklet navigator."
+covers = ["R9"]
+
+[[epic]]
+id = 2
+slug = "epic-02-gatekeeper-auth"
+title = "Role Gatekeeper & Session Bifurcation"
+description = "Halaman depan dua pintu (Kaset MK-60 Maroon untuk Band vs Vinyl LP Mustard untuk EO) yang langsung membelah sesi dan navigasi pengguna ke panggung kerja masing-masing."
+covers = ["R1"]
+after = [{ epic = 1, needs = "Panggung booklet 100vh dan sistem navigasi lembaran" }]
+
+[[epic]]
+id = 3
+slug = "epic-03-band-wizard"
+title = "Band Studio Wizard & 4-Step EPK Builder"
+description = "Wizard 4 langkah bagi musisi untuk mendaftarkan identitas & genre, upload demo MP3/WAV berbingkai kaset, dokumentasi foto latihan Polaroid & riwayat gig, serta technical rider panggung dengan meter kelengkapan 100%."
+covers = ["R2", "R3", "R4", "R5"]
+after = [{ epic = 2, needs = "Autentikasi dan identifikasi peran Musisi" }]
+
+[[epic]]
+id = 4
+slug = "epic-04-public-epk"
+title = "Public EPK Dossier & Media Player"
+description = "Dossier profil band publik siap bagi (reffband.id/@band) dengan pemutar audio cuplikan 30-detik analog lo-fi, galeri foto latihan Polaroid studio bertanggal, dan technical rider panggung."
+covers = ["R6"]
+after = [{ epic = 3, needs = "Model data profil band dan penyimpanan audio demo" }]
+
+[[epic]]
+id = 5
+slug = "epic-05-eo-discovery"
+title = "EO Talent Discovery & 1-Tap WhatsApp Booking Handshake"
+description = "Dasbor kurasi dan pencarian band bagi EO dengan filter multi-kriteria instan, audisi audio 30 detik tanpa buka tab baru (zero-page-load), dan tombol 1-tap WhatsApp booking yang otomatis menyusun draf pesan resmi."
+covers = ["R7", "R8"]
+after = [{ epic = 4, needs = "Katalog profil band publik dan pemutar audio demo" }]

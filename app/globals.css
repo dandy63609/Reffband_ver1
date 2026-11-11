@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   VIEWPORT LOCK WITH DYNAMIC DVH SIZING FOR MOBILE
+   AD-2 & STORY-1.1 (Supports mobile browser address bars)
+   ========================================================= */
+html, body {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #14110F;
+  color: #14110F;
+  font-family: var(--font-sans, "Plus Jakarta Sans", -apple-system, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base interactive cursor states (R-39) */
+button,
+a,
+select,
+input[type="checkbox"],
+input[type="radio"],
+[role="button"] {
+  cursor: pointer;
+}
+button:disabled,
+input:disabled,
+select:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   CHECKERED DECORATIVE BANDS (WINE & MUSTARD GLSL EMULATION)
+   ========================================================= */
+.checkered-band {
+  height: 14px;
+  width: 100%;
+  background-color: #7E1929;
+  background-image: 
+    linear-gradient(45deg, #F5C542 25%, transparent 25%), 
+    linear-gradient(-45deg, #F5C542 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #F5C542 75%), 
+    linear-gradient(-45deg, transparent 75%, #F5C542 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+  border-top: 2px solid #14110F;
+  border-bottom: 2px solid #14110F;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   RETRO INTERNAL SCROLLBARS FOR .reader-leaf
+   ========================================================= */
+.reader-leaf-content::-webkit-scrollbar {
+  width: 8px;
+}
+.reader-leaf-content::-webkit-scrollbar-track {
+  background: #ECE7E1;
+  border-left: 1px solid #14110F;
+}
+.reader-leaf-content::-webkit-scrollbar-thumb {
+  background: #7E1929;
+  border: 1px solid #14110F;
+  border-radius: 4px;
+}
+.reader-leaf-content::-webkit-scrollbar-thumb:hover {
+  background: #661220;
+}
+
+/* =========================================================
+   3D ACCORDION ORIGAMI TRANSFORM ENGINE (AD-2)
+   ========================================================= */
+.perspective-stage {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Desktop Origami Panel Hinges (Y-axis) */
+.accordion-panel-desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  will-change: transform;
+}
+.accordion-panel-desktop > .accordion-panel-desktop {
+  left: 100%;
+  top: 0;
+}
+
+/* Mobile Origami Panel Hinges (X-axis, Top Hinge) */
+.accordion-panel-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center top;
+  will-change: transform;
+}
+.accordion-panel-mobile > .accordion-panel-mobile {
+  left: 0;
+  top: 100%;
+}
+
+/* 3D Panel Surface Slice */
+.accordion-slice {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  background: #FAF8F5;
+  backface-visibility: hidden;
+  box-shadow: -1px 0 0 rgba(20, 17, 15, 0.15), 8px 0 24px rgba(20, 17, 15, 0.12);
+}
+
+.accordion-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  transition: opacity 0.05s linear;
+}
+
+.accordion-shading {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(20, 17, 15, 0.45), transparent 45%);
+}
+
+/* Dynamic Ground Shadow Projection */
+.reader-fold-ground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  fill: #14110F;
+  will-change: opacity, filter;
+}
+
+/* =========================================================
+   STACKED WASHI PAPER SHADOW (SMARTPHONE ELEVATION)
+   ========================================================= */
+.washi-book-shadow {
+  box-shadow: 
+    0 1px 3px rgba(64, 48, 28, 0.05),
+    0 9px 16px -10px rgba(58, 43, 33, 0.29),
+    0 20px 32px -23px rgba(58, 43, 33, 0.22),
+    2px 1px 0 #c7b99f,
+    4px 2px 0 #f6f0e3,
+    5px 3px 0 #cbbda4 !important;
+}

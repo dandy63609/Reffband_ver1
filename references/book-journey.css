@@ -1,0 +1,168 @@
+/* Folded paper, cloth-bound edges, and the existing GoShuin band collection. */
+.goshuin-book-site { --book-paper:#faf7ee; --book-edge:#d5cbb7; background:#e8e3d8; background-image:radial-gradient(#8d806b13 .65px,transparent .8px); background-size:5px 5px; }
+.goshuin-book-site .site-header { background:#f7f4ecef; border-bottom:1px solid #d6cdbb; backdrop-filter:blur(14px); }
+.site-header nav a { text-transform:none; }
+.goshuin-book { max-width:1440px; margin:28px auto 0; background:var(--book-paper); box-shadow:0 12px 60px #42392915,4px 0 0 #d6cdba,7px 0 0 #f5f0e5,8px 0 0 #d6cdba; position:relative; isolation:isolate; }
+.goshuin-book>.wrap { width:calc(100% - 112px); max-width:1140px; }
+.goshuin-book .section { padding-block:68px; }
+.book-hero.illustrated-hero { width:100%; min-height:640px; padding:66px 6% 76px; overflow:hidden; background:var(--book-paper); perspective:1800px; isolation:isolate; }
+.book-hero .hero-copy { width:50%; max-width:46%; padding-right:18px; }
+.book-hero h1 { font-size:clamp(48px,5.15vw,75px); line-height:1.1; letter-spacing:-.045em; }
+.book-hero .lead { max-width:385px; font-size:14px; line-height:1.9; }
+.book-hero .kicker { font-size:9px; letter-spacing:.15em; }
+.book-hero .journey-scene { inset:0 0 0 50%; margin:0; background:#eee9dc; }
+.book-hero .journey-scene>img { object-fit:cover; object-position:54% center; }
+.book-hero .journey-scene::after { background:linear-gradient(90deg,#4e412d22,transparent 10%,transparent 90%,#4e412d09); z-index:1; }
+.book-hero:after { content:''; position:absolute; top:0; bottom:0; left:calc(50% - 22px); width:44px; z-index:4; pointer-events:none; background:linear-gradient(90deg,transparent,#71654b0d 32%,#64553e26 48%,#fffef785 50%,#50442d20 53%,transparent); }
+.book-hero:before { content:''; position:absolute; inset:0; z-index:5; pointer-events:none; border-block:8px solid transparent; border-image:url('/goshuin/assets/band-indigo-waves-20261004.webp') 20 stretch; }
+.book-hero .journey-scene figcaption { bottom:24px; right:25px; background:#f9f5e9dd; }
+.book-hero .scene-replay { left:6%; bottom:16px; font-size:10px; padding:4px 0; background:none; min-height:40px; }
+.book-cover { position:absolute; inset:0 0 0 50%; z-index:6; transform-origin:left center; transform-style:preserve-3d; pointer-events:none; visibility:hidden; }
+.book-cover-front,.book-cover-back { position:absolute; inset:0; backface-visibility:hidden; border:1px solid #1a333c; box-shadow:12px 8px 25px #18232125; }
+.book-cover-front { background:#253c4a; background-image:repeating-linear-gradient(0deg,#c6d0c308 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,#c6d0c308 0 1px,transparent 1px 4px); display:flex; align-items:center; justify-content:center; }
+.cover-band { position:absolute; inset:0 0 auto; height:21%; background:url('/goshuin/assets/band-indigo-waves-20261004.webp') center/auto 100%; border-bottom:1px solid #cab16c; }
+.cover-band-bottom { inset:auto 0 0; border:0; border-top:1px solid #cab16c; }
+.cover-title { position:absolute; top:27%; left:17%; writing-mode:vertical-rl; padding:22px 12px; background:#f7eed9; border:1px solid #c3b394; font:34px/1.4 var(--serif); letter-spacing:.18em; color:#343a31; box-shadow:3px 3px 0 #151f2529; }
+.cover-imprint { font:43px var(--serif); letter-spacing:-.04em; color:#e3cf9a; margin-left:20%; margin-top:8%; }
+.cover-imprint>span { display:block; font:8px var(--sans); letter-spacing:.23em; margin-top:14px; text-align:center; }
+.book-cover-back { transform:rotateY(180deg); background:#f8f3e7; background-image:linear-gradient(90deg,#65543c13,transparent 15%,transparent 85%,#65543c0d); border-color:#c7b89a; }
+.book-chapter-band { --band-image:url('/goshuin/assets/band-indigo-waves-20261004.webp'); height:72px; position:relative; margin:14px 0 0; perspective:1000px; isolation:isolate; }
+.band-vermilion-clouds { --band-image:url('/goshuin/assets/band-vermilion-clouds-20261004.webp'); }
+.band-pine-fan { --band-image:url('/goshuin/assets/band-pine-fan-20261004.webp'); }
+.band-golden-tide { --band-image:url('/goshuin/assets/band-golden-tide-20261004.webp'); }
+.band-jade-ribbons { --band-image:url('/goshuin/assets/band-jade-ribbons-20261004.webp'); }
+.band-sakura-silk { --band-image:url('/goshuin/assets/band-sakura-silk-20261004.webp'); }
+.band-folds { display:flex; height:100%; overflow:hidden; }
+.band-folds i { width:25%; height:100%; background-image:linear-gradient(90deg,#32271920,transparent 13%,transparent 85%,#32271922),var(--band-image); background-size:100% 100%,400% auto; background-position:center,0 50%; transform-origin:top; border-block:1px solid #bcb19766; }
+.band-folds i:nth-child(2) { background-position:center,33.333% 50%; }
+.band-folds i:nth-child(3) { background-position:center,66.667% 50%; }
+.band-folds i:nth-child(4) { background-position:center,100% 50%; }
+.band-chapter { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); padding:10px 21px; background:#faf7eeee; border:1px solid #c9bfa9; box-shadow:0 2px 5px #3b301a16; white-space:nowrap; font:12px/1.4 var(--sans); letter-spacing:.1em; color:#344a3d; }
+.band-chapter b { font:italic 18px var(--serif); color:#963f30; padding-right:12px; border-right:1px solid #c5baa4; margin-right:10px; }
+.goshuin-book .journey-chapters { padding-block:22px; border:0; margin-bottom:6px; }
+.goshuin-book .app-tour { padding:43px 42px; background:#f5f1e6; border:1px solid #d2c7b2; box-shadow:4px 4px 0 #dfd6c5; border-radius:0; overflow:visible; }
+.goshuin-book .app-tour:before { height:2px; }
+.book-spread { position:relative; perspective:1400px; }
+.app-tour.book-spread:after { content:''; position:absolute; inset:0 auto 0 53%; width:28px; pointer-events:none; background:linear-gradient(90deg,transparent,#6b583414,#fff8e859,transparent); }
+.goshuin-book .tour-stage:before { border:0; inset:0; aspect-ratio:auto; border-radius:0; width:100%; height:100%; max-width:none; background:linear-gradient(90deg,#71654b09,transparent 10%); opacity:1; }
+.goshuin-book .tour-stage figure { transform-origin:left center; }
+.goshuin-book .tour-stage img { border-radius:12px; box-shadow:0 12px 20px -12px #46321b45; }
+.goshuin-book .tour-controls button { border-bottom:1px solid #d5ccb7!important; border-radius:0; }
+.goshuin-book .tour-controls button[aria-pressed=true] { background:#eee6d3; box-shadow:inset 2px 0 #a34b35; }
+.goshuin-book .purpose { gap:80px; align-items:start; background:linear-gradient(90deg,transparent 45%,#8d79500b 48%,#66513213 49.5%,#fffdfa 50%,transparent 52%); }
+.goshuin-book .purpose>div:first-child { position:static; }
+.goshuin-book .memory-stamp { max-width:400px; }
+.goshuin-book .stamp-paper { background:#fffdf4; border-color:#dfd5c0; box-shadow:3px 4px 0 #e4dac8,4px 5px 0 #cbbda1; transform:rotate(-1deg); }
+.goshuin-book .culture { background:#2d4338; margin-top:0; }
+.goshuin-book .culture>.wrap { width:calc(100% - 112px); max-width:1140px; }
+.goshuin-book .culture-grid { perspective:1200px; }
+.goshuin-book .culture-grid article { transform-origin:left center; }
+.goshuin-book .culture-grid article:nth-child(2) { background:linear-gradient(90deg,#101b1418,transparent 20%,transparent 80%,#0c180e18); }
+.goshuin-book .scan-steps { gap:0; perspective:1400px; }
+.goshuin-book .scan-steps li { background:#f8f4e9; border-block:1px solid #d7cbb6; padding:26px; transform-origin:left center; box-shadow:inset 8px 0 12px -10px #5f4a32; }
+.goshuin-book .scan-steps li+li { border-left:1px solid #cbbda1; }
+.goshuin-book .scan-steps li:before { display:none; }
+.goshuin-book .scan-step-number { border-radius:0; border-color:#ae9b77; background:#f9f5e9; font:22px var(--serif); }
+.goshuin-book .trends { background:transparent; }
+.goshuin-book .trends>.wrap { width:calc(100% - 112px); max-width:1140px; }
+.goshuin-book .support { border:0; }
+.goshuin-book .faq details { border-color:#cbbfa8; }
+.goshuin-book .faq details[open] { background:#f0eadb; border-radius:0; }
+.goshuin-book .closing { border-radius:0; margin-bottom:0; border-inline:0; width:100%; max-width:none; min-height:260px; padding:55px 6%; background:#2b4037; color:#fbf7e8; }
+.goshuin-book .closing h2 { color:inherit; }
+.goshuin-book .closing-art { opacity:.12; }
+.goshuin-book .closing-art:after { background:linear-gradient(90deg,#2b4037,transparent); }
+.goshuin-book .closing>.button { background:#f4ecd7; color:#314538; border-color:#f4ecd7; }
+.goshuin-book-site>.footer-band { max-width:1440px; margin:auto; height:50px; opacity:1; box-shadow:0 5px 0 #c7b899; background-position:center; }
+.goshuin-book-site .site-footer { max-width:1140px; }
+/* A small paper tab for motion, with a larger invisible touch target. */
+.book-motion-control { position:fixed; right:16px; bottom:18px; z-index:30; display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:30px; padding:5px 12px; border:1px solid #82755f29; border-radius:999px; background:#f7f3e9ed; color:#716956; font:10px/1.2 var(--sans); letter-spacing:.025em; cursor:pointer; box-shadow:0 1px 2px #44352206; transition:background-color 180ms,color 180ms,border-color 180ms,box-shadow 180ms; }
+.book-motion-control::before { content:''; flex:0 0 9px; width:9px; height:9px; background:linear-gradient(90deg,currentColor 0 2px,transparent 2px 6px,currentColor 6px 8px,transparent 8px); opacity:.75; }
+.book-motion-control::after { content:''; position:absolute; inset:-7px -3px; }
+.book-motion-control[aria-pressed=true] { color:#52634f; }
+.book-motion-control[aria-pressed=true]::before { background:currentColor; clip-path:polygon(18% 0,95% 50%,18% 100%); }
+@media(hover:hover) { .book-motion-control:hover { background:#fffcf4; color:#344d40; border-color:#82755f55; box-shadow:0 2px 8px #4435220c; } }
+.book-motion-control:focus-visible { outline:2px solid #887653; outline-offset:3px; }
+.book-motion-paused * { scroll-behavior:auto!important; }
+.book-motion-paused .journey-scene>img { transform:none!important; transition:none!important; }
+.book-motion-paused .chart-card * { animation:none!important; transition:none!important; }
+@media (min-width:1500px) {
+  .goshuin-book { margin-top:36px; margin-bottom:0; }
+  .book-hero h1 { font-size:76px; }
+}
+@media (min-width:701px) and (max-width:1100px) {
+  .goshuin-book { margin:18px 20px 0; }
+  .goshuin-book>.wrap,.goshuin-book .culture>.wrap,.goshuin-book .trends>.wrap { width:calc(100% - 64px); }
+  .book-hero.illustrated-hero { padding-inline:4%; min-height:620px; }
+  .book-hero h1 { font-size:56px; }
+  .book-hero .hero-copy { max-width:47%; padding-right:12px; }
+  .book-hero .actions { gap:14px; flex-wrap:wrap; }
+  .book-hero .scene-replay { left:4%; }
+  .goshuin-book .app-tour { padding:32px 27px; }
+  .app-tour.book-spread:after { left:53%; }
+  .goshuin-book .purpose { gap:55px; }
+  .goshuin-book-site>.footer-band { margin-inline:20px; }
+}
+@media (max-width:700px) {
+  .goshuin-book { margin:12px 10px 0; box-shadow:2px 0 0 #d6cdba,4px 0 0 #f5f0e5,5px 0 0 #d6cdba; }
+  .goshuin-book>.wrap,.goshuin-book .culture>.wrap,.goshuin-book .trends>.wrap { width:calc(100% - 36px); }
+  .goshuin-book .section { padding-block:42px; }
+  .book-hero.illustrated-hero { min-height:0; padding:36px 0 0; gap:0; }
+  .book-hero .hero-copy { width:auto; max-width:none; margin-inline:22px; padding:0; }
+  .book-hero h1 { font-size:clamp(43px,11vw,65px); line-height:1.12; }
+  .book-hero .lead { font-size:13px; line-height:1.85; margin-top:18px; }
+  .book-hero .kicker { font-size:8px; letter-spacing:.08em; }
+  .book-hero .actions { gap:15px; }
+  .book-hero .actions>.button { font-size:11px; padding-inline:13px; }
+  .book-hero .actions>.text-link { font-size:11px; }
+  .book-hero .hero-trust { margin-top:17px; }
+  .book-hero .meta { font-size:9px; }
+  .book-hero .journey-scene { position:relative; inset:auto; width:100%; aspect-ratio:1.3; margin-top:26px; box-shadow:inset 0 2px 5px #463a2022; }
+  .book-hero .journey-scene>img { object-position:50% 58%; }
+  .book-hero .journey-scene::after { background:linear-gradient(180deg,#4e412d15,transparent 10%); }
+  .book-hero:after { inset:0 auto 0 0; width:13px; background:linear-gradient(90deg,#61503720,transparent); }
+  .book-hero .scene-replay { inset:auto auto 17px 17px; padding:7px 10px; background:#f7f1e4e6; min-height:40px; font-size:9px; }
+  .book-hero .journey-scene figcaption { bottom:17px; right:14px; }
+  .book-cover { inset:auto 0 0; height:auto; aspect-ratio:1.3; }
+  .cover-title { font-size:22px; top:23%; left:16%; padding:12px 9px; }
+  .cover-imprint { font-size:31px; margin-left:28%; margin-top:0; }
+  .cover-imprint>span { font-size:6px; }
+  .cover-band { height:18%; }
+  .book-chapter-band { height:56px; margin-top:4px; }
+  .band-chapter { padding:7px 15px; font-size:10px; }
+  .band-chapter b { font-size:16px; }
+  .band-folds i { background-size:100% 100%,400% 100%; }
+  .goshuin-book .journey-chapters { padding-block:18px; }
+  .goshuin-book .journey-chapters a { font-size:9px; padding-inline:9px; }
+  .goshuin-book .journey-chapters a:first-child { padding-left:0; }
+  .goshuin-book .app-tour { padding:27px 17px; overflow:hidden; }
+  .app-tour.book-spread:after { display:none; }
+  .goshuin-book .tour-copy>h2 { font-size:30px; }
+  .goshuin-book .tour-stage { border-top:1px solid #d5c7ae; padding-top:24px; perspective:1200px; }
+  .goshuin-book .tour-stage:before { display:none; }
+  .goshuin-book .tour-stage figure { max-width:205px; }
+  .goshuin-book .tour-controls button { padding:10px 7px; }
+  .goshuin-book .tour-controls strong { font-size:10px; }
+  .goshuin-book .purpose { background:none; gap:26px; }
+  .goshuin-book .purpose h2 { font-size:33px; }
+  .goshuin-book .stamp-paper { padding:23px 20px; }
+  .goshuin-book .scan-steps li { padding:24px 21px; border:1px solid #d7cbb6!important; }
+  .goshuin-book .scan-steps li+li { border-top:0!important; }
+  .goshuin-book .closing { padding:37px 26px; }
+  .goshuin-book-site>.footer-band { margin-inline:10px; height:36px; }
+  .book-motion-control { right:13px; bottom:82px; font-size:9px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .goshuin-book { scroll-behavior:auto; }
+  .book-cover { visibility:hidden!important; }
+  .book-hero .journey-scene>img { transform:none; transition:none; }
+  .book-motion-control { display:none; }
+}
+/* The first-page illustration stays still; only the density of its ink is revealed. */
+.illustrated-hero .journey-scene>img { transform:none!important; transition:none!important; }
+.journey-scene.is-ink-revealing>img { opacity:0; }
+.intensity-reveal { position:absolute; inset:0; background:#f5f1e6; pointer-events:none; z-index:0; }
+.intensity-reveal>img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:54% center; margin:0; transform:none!important; transition:none!important; }
+@media (max-width:700px) {
+  .intensity-reveal>img { object-position:50% 58%; }
+}
